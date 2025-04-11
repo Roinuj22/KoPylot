@@ -1,0 +1,155 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: linear-gradient(to bottom, white, #60a5fa, #1e3a8a);
+    color: white;
+}
+
+/* Navbar */
+nav {
+    background: white;
+    color: black;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav .left {
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+nav .right {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 0.9rem;
+}
+
+nav a:hover {
+    color: #2563eb;
+}
+
+nav button {
+    background: #2563eb;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background: #1d4ed8;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 5rem 1rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.car-animation {
+    width: 650px;
+    max-width: 90%;
+    margin-top: 2rem;
+    opacity: 0;
+    transform: translateX(400px);
+    animation: slideIn 1.2s ease-out forwards;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Sections */
+.container {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+    color: white;
+}
+
+.section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.section h2:hover {
+    color: #bfdbfe;
+}
+
+/* Avis */
+.avis-cards {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .avis-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.avis-card {
+    background: white;
+    color: black;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.avis-card:hover {
+    transform: scale(1.05);
+}
+
+/* Contact */
+.contact-form {
+    background: white;
+    color: black;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    display: grid;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.contact-form button {
+    background: #2563eb;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: #1d4ed8;
+}
