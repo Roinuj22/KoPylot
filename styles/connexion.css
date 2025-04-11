@@ -1,0 +1,137 @@
+.login-container {
+    display: flex;
+    height: 100vh;
+    font-family: sans-serif;
+}
+
+.login-left {
+    flex: 1;
+    background: linear-gradient(to bottom right, #60a5fa, #1e3a8a);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.login-left h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.kop-name {
+    color: #bfdbfe;
+    font-weight: bold;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 300px;
+}
+
+.login-form input {
+    padding: 0.8rem;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+}
+
+.login-form button {
+    padding: 0.8rem;
+    background: white;
+    color: #1e3a8a;
+    border: none;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-form button:hover {
+    background: #bfdbfe;
+}
+
+/* Right Section */
+.login-right {
+    flex: 1;
+    background: white;
+    color: #1e3a8a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.login-right h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.kop-name-dark {
+    color: #2563eb;
+    font-weight: bold;
+}
+
+.login-right p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    max-width: 400px;
+}
+
+.signup-link {
+    text-decoration: none;
+    color: white;
+    background: #2563eb;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.signup-link:hover {
+    background: #1d4ed8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .login-left,
+    .login-right {
+        flex: none;
+        height: auto;
+        padding: 2rem;
+    }
+
+    .login-right {
+        align-items: center;
+        text-align: center;
+    }
+}
+.back-home {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 10;
+}
+
+.back-link {
+    color: white;
+    background: #1e3a8a;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.back-link:hover {
+    background: #2563eb;
+}

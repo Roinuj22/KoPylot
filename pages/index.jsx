@@ -10,7 +10,7 @@ export default function HomePage() {
                 <div className="left">LOGO</div>
                 <div className="right">
                     <a href="#">Accueil</a>
-                    <button>Connexion</button>
+                    <a href="/connexion" className="nav-button">👤 Connexion</a>
                 </div>
             </nav>
 
