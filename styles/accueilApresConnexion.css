@@ -1,0 +1,64 @@
+.page-connectee {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, white, #60a5fa, #1e3a8a);
+    font-family: sans-serif;
+    padding: 2rem 1rem;
+    color: white;
+}
+
+.navbar-connectee {
+    background: white;
+    color: #1e3a8a;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.navbar-connectee .logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.navbar-connectee .liens {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.navbar-connectee a {
+    text-decoration: none;
+    color: #1e3a8a;
+    font-weight: 500;
+}
+
+.navbar-connectee a:hover {
+    color: #2563eb;
+}
+
+/* Contenu principal */
+.dashboard-contenu {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Exemple de bloc section */
+.section-dashboard {
+    background: white;
+    color: #1e3a8a;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.section-dashboard:hover {
+    transform: translateY(-5px);
+}

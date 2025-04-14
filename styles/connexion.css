@@ -4,6 +4,7 @@
     font-family: sans-serif;
 }
 
+/* Partie gauche - Connexion */
 .login-left {
     flex: 1;
     background: linear-gradient(to bottom right, #60a5fa, #1e3a8a);
@@ -56,18 +57,25 @@
     background: #bfdbfe;
 }
 
-/* Right Section */
+/* Partie droite - Inscription */
 .login-right {
     flex: 1;
     background: white;
     color: #1e3a8a;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 3rem;
 }
 
-.login-right h2 {
+.signup-box-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 400px;
+}
+
+.signup-box-right h2 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
 }
@@ -77,19 +85,20 @@
     font-weight: bold;
 }
 
-.login-right p {
+.signup-box-right p {
     font-size: 1rem;
-    margin-bottom: 2rem;
-    max-width: 400px;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
 }
 
 .signup-link {
     text-decoration: none;
     color: white;
     background: #2563eb;
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: bold;
     transition: background 0.3s;
 }
 
@@ -97,24 +106,7 @@
     background: #1d4ed8;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .login-container {
-        flex-direction: column;
-    }
-
-    .login-left,
-    .login-right {
-        flex: none;
-        height: auto;
-        padding: 2rem;
-    }
-
-    .login-right {
-        align-items: center;
-        text-align: center;
-    }
-}
+/* Lien retour en haut à gauche */
 .back-home {
     position: absolute;
     top: 1.5rem;
@@ -134,4 +126,46 @@
 
 .back-link:hover {
     background: #2563eb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .login-left,
+    .login-right {
+        flex: none;
+        height: auto;
+        padding: 2rem;
+    }
+
+    .login-right {
+        align-items: center;
+        text-align: center;
+    }
+
+    .signup-box-right {
+        align-items: center;
+    }
+}
+.message-box {
+    margin-bottom: 1rem;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.message-box.success {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.message-box.error {
+    background-color: #fee2e2;
+    color: #991b1b;
 }
