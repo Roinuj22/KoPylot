@@ -1,0 +1,308 @@
+/* ===== GLOBAL ===== */
+.mes-vehicules {
+    min-height: 100vh;
+    background: linear-gradient(
+            to bottom,
+            #ffffff 8%,
+            #7fb1ff 26%,
+            #5195fe 53%,
+            #0557d5 80%
+    );
+    font-family: 'Segoe UI', sans-serif;
+    color: black;
+    padding: 2rem;
+}
+
+/* ===== HEADER ===== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.logo-vehicules {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 1rem;
+}
+
+.ajouter-btn {
+    font-size: 1.5rem;
+    background: #0557d5;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Effet hover + animation au clic */
+.ajouter-btn:hover {
+    background: #003c9e;
+    transform: scale(1.1);
+}
+
+.ajouter-btn:active {
+    animation: pulse 0.4s ease;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.ajouter-texte {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: black;
+    font-weight: 500;
+}
+
+/* Message version pro */
+.message-pro {
+    background: #ffeded;
+    color: #d32f2f;
+    padding: 1rem;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+/* ===== FORMULAIRE VEHICULE ===== */
+.formulaire-vehicule {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: grid;
+    gap: 1rem;
+}
+
+.formulaire-vehicule input,
+.formulaire-vehicule select {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.formulaire-vehicule button {
+    background: #0557d5;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.formulaire-vehicule button:hover {
+    background: #003c9e;
+}
+
+/* ===== CARTE VEHICULE ===== */
+.carte-vehicule {
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    position: relative;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    min-height: 220px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carte-vehicule:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+.image-zone {
+    flex-shrink: 0;
+}
+
+.image-zone img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-right: 1.5rem;
+}
+
+.infos {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.infos h3 {
+    margin: 0 0 0.8rem;
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #1e3a8a;
+}
+
+.infos p {
+    margin: 0.3rem 0;
+    font-size: 1.8rem;
+    color: #1e3a8a;
+    font-weight: 600;
+}
+
+.infos .etat {
+    margin-top: 0.5rem;
+    font-style: italic;
+    font-size: 1rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.infos .etat.hors-service {
+    background: #ffeaea;
+    color: #d32f2f;
+}
+
+.infos .etat.vendu {
+    background: #e1fbe1;
+    color: #1a7f1a;
+}
+
+/* ===== ACTIONS ===== */
+.actions {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.actions button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+.actions button:hover {
+    color: #003c9e;
+}
+
+.actions.show .dropdown {
+    display: block;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 2.5rem;
+    background: #f9f9f9;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 5;
+    min-width: 150px;
+}
+
+.dropdown ul {
+    list-style: none;
+    padding: 0.5rem;
+    margin: 0;
+}
+
+.dropdown li {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #0557d5;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown li:hover {
+    background-color: #e3efff;
+    border-radius: 6px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .carte-vehicule {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image-zone img {
+        margin: 0 0 1rem;
+    }
+
+    .dropdown {
+        right: 50%;
+        transform: translateX(50%);
+    }
+}
+
+/* ===== SIDEBAR PROFIL (OPTIONNEL) ===== */
+.sidebar-profil {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 260px;
+    height: 100vh;
+    background: white;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 2rem 1rem;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sidebar-profil ul {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.sidebar-profil li {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1e3a8a;
+    cursor: pointer;
+}
+
+.sidebar-profil li:hover {
+    color: #003c9e;
+}
+
+.sidebar-profil a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    align-self: flex-end;
+    color: #1e3a8a;
+}

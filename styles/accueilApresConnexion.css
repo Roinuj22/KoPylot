@@ -1,64 +1,265 @@
+/* ===== PAGE CONNECTÉE ===== */
 .page-connectee {
     min-height: 100vh;
-    background: linear-gradient(to bottom, white, #60a5fa, #1e3a8a);
-    font-family: sans-serif;
-    padding: 2rem 1rem;
+    background: linear-gradient(
+            to bottom,
+            #ffffff 8%,
+            #7fb1ff 26%,
+            #5195fe 53%,
+            #0557d5 80%
+    );
+    font-family: 'Segoe UI', sans-serif;
     color: white;
 }
 
+/* ===== NAVBAR ===== */
 .navbar-connectee {
-    background: white;
-    color: #1e3a8a;
-    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
+    background: white;
+    color: black;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
+    margin: 1.5rem auto 2rem;
+    max-width: 1200px;
+}
+
+.navbar-connectee .nav-left,
+.navbar-connectee .nav-right,
+.navbar-connectee .nav-center {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.navbar-connectee .nav-left a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.navbar-connectee .nav-left a:hover {
+    color: #003c9e;
 }
 
 .navbar-connectee .logo {
     font-weight: bold;
-    font-size: 1.2rem;
-    cursor: pointer;
+    font-size: 1.4rem;
+    justify-content: center;
+    text-align: center;
 }
 
-.navbar-connectee .liens {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
+.navbar-connectee .nav-right {
+    font-size: 1.3rem;
 }
 
-.navbar-connectee a {
-    text-decoration: none;
-    color: #1e3a8a;
-    font-weight: 500;
-}
-
-.navbar-connectee a:hover {
-    color: #2563eb;
-}
-
-/* Contenu principal */
+/* ===== DASHBOARD SECTIONS ===== */
 .dashboard-contenu {
-    max-width: 1000px;
-    margin: auto;
+    max-width: 1100px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    padding: 0 1rem;
 }
 
-/* Exemple de bloc section */
 .section-dashboard {
     background: white;
-    color: #1e3a8a;
+    color: black;
     border-radius: 1rem;
     padding: 2rem;
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease;
+    text-align: center;
 }
 
 .section-dashboard:hover {
     transform: translateY(-5px);
+}
+
+.dashboard-img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    border-radius: 0.75rem;
+}
+
+/* ===== FEATURES CARDS (REPRISE DE LA PAGE D’ACCUEIL) ===== */
+.features-stacked {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.feature-row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    background: transparent;
+    border-radius: 1rem;
+    color: white;
+    transition: transform 0.3s ease;
+    min-height: 420px;
+    padding: 1.5rem 2rem;
+}
+
+.feature-row:hover {
+    transform: scale(1.02);
+}
+
+.feature-row img {
+    width: 480px;
+    height: 300px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 1rem;
+}
+
+.feature-text {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.feature-text h3 {
+    margin-bottom: 0.6rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.feature-text p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 600px;
+}
+
+.row-right {
+    flex-direction: row-reverse;
+}
+
+/* ===== CONTACT (REPRISE) ===== */
+.contact-section {
+    padding: 3rem 2rem;
+    color: white;
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.contact-form {
+    background: white;
+    color: black;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 380px;
+    display: grid;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.contact-form button {
+    background: #2563eb;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: #1d4ed8;
+}
+
+.contact-image {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    .feature-row,
+    .row-right {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .feature-row img {
+        width: 100%;
+        height: 220px;
+    }
+
+    .feature-text h3 {
+        font-size: 1.5rem;
+    }
+
+    .feature-text p {
+        font-size: 1rem;
+    }
+
+    .contact-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-image img {
+        max-height: 250px;
+    }
+}
+.car-animation {
+    width: 850px;
+    max-width: 100%;
+    margin-top: 1rem;
+    opacity: 0;
+    transform: translateX(400px);
+    animation: slideIn 1.2s ease-out forwards;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

@@ -1,0 +1,125 @@
+/* ===== PROFIL PAGE ===== */
+.profil-page {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(
+            to bottom,
+            #ffffff 8%,
+            #7fb1ff 26%,
+            #5195fe 53%,
+            #0557d5 80%
+    );
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    width: 250px;
+    background: white;
+    padding: 2rem 1rem;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sidebar h2 {
+    margin-bottom: 1rem;
+    color: #1e3a8a;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #1e3a8a;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.sidebar li:hover,
+.sidebar li.active {
+    background-color: #e0edff;
+}
+
+/* ===== CONTENT GENERAL ===== */
+.content {
+    flex: 1;
+    padding: 2rem;
+    color: black;
+}
+
+/* Sections de contenu */
+.documents-section,
+.parametres-section,
+.historique-section {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(6px);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.documents-section h1,
+.parametres-section h1,
+.historique-section h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Liste interne (dans contenu) */
+ul li {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: black; /* ✅ Texte noir pour tout */
+}
+
+/* ===== BOUTON AJOUTER DOCUMENT ===== */
+.ajouter-btn {
+    background: #0557d5;
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.ajouter-btn:hover {
+    background: #003c9e;
+}
+
+/* ===== RESPONSIVE MOBILE ===== */
+@media (max-width: 768px) {
+    .profil-page {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .sidebar ul {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+}
