@@ -14,11 +14,14 @@
 }
 
 /* ===== HEADER ===== */
+/* ===== HEADER ===== */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* 👈 pour éviter le débordement sur mobile */
     margin-bottom: 2rem;
+    padding: 0 1rem;
 }
 
 .logo-vehicules {
@@ -28,6 +31,7 @@
     margin-bottom: 1rem;
 }
 
+/* ===== BOUTON AJOUTER ===== */
 .ajouter-btn {
     font-size: 1.5rem;
     background: #0557d5;
@@ -43,7 +47,7 @@
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* Effet hover + animation au clic */
+/* Effet hover + clic */
 .ajouter-btn:hover {
     background: #003c9e;
     transform: scale(1.1);
@@ -59,11 +63,26 @@
     100% { transform: scale(1); }
 }
 
+/* ===== TEXTE SOUS LE BOUTON ===== */
 .ajouter-texte {
     margin-top: 0.5rem;
     font-size: 0.9rem;
     color: black;
     font-weight: 500;
+    text-align: center;
+}
+
+/* ===== RESPONSIVE HEADER ===== */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .logo-vehicules {
+        margin-bottom: 0.5rem;
+    }
 }
 
 /* Message version pro */

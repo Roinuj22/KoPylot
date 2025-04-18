@@ -62,18 +62,6 @@ export default function ProfilPage() {
                     </div>
                 )}
 
-                {activeTab === "historique" && (
-                    <div className="historique-section">
-                        <h1>Historique</h1>
-                        <ul>
-                            <li>🔧 Historique des entretiens réalisés</li>
-                            <li>✅ Historique des contrôles checklist</li>
-                            <li>💰 Historique des dépenses</li>
-                            <li>📝 Filtrage par type, date, véhicule</li>
-                            <li>🔍 Moteur de recherche interne</li>
-                        </ul>
-                    </div>
-                )}
             </main>
         </div>
     );
