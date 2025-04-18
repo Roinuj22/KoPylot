@@ -2,8 +2,15 @@ import React, { useEffect, useState } from "react";
 
 export default function AccueilApresConnexion() {
     const [prenom, setPrenom] = useState("Utilisateur");
+    const [isClient, setIsClient] = useState(false); //  Pour différencier client/serveur
 
     useEffect(() => {
+        setIsClient(true); //  Quand la page est bien montée côté client
+    }, []);
+
+    useEffect(() => {
+        if (!isClient) return;
+
         const isConnected = localStorage.getItem("isConnected");
         if (!isConnected) {
             window.location.href = "/connexion";
@@ -34,7 +41,7 @@ export default function AccueilApresConnexion() {
         handleScroll();
 
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [isClient]); //  Dépend de isClient
 
     const features = [
         {
@@ -63,6 +70,10 @@ export default function AccueilApresConnexion() {
             image: "/image/Rapport .jpg",
         },
     ];
+
+    if (!isClient) {
+        return null; // Ne rien afficher tant que pas chargé côté client
+    }
 
     return (
         <div className="page-connectee">

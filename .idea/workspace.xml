@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fcfada0-7197-490e-97dc-929794e587c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/MesVehicules.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/profil.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/MesVehicules.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/profil.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/MesVehicules.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/MesVehicules.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/accueilApresConnexion.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/accueilApresConnexion.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/connexion.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/connexion.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/accueilApresConnexion.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/accueilApresConnexion.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +25,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupnpm">
+      <scroll-view-position x="0" y="0" />
+    </layout>
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -73,7 +73,7 @@
       <workItem from="1744272529431" duration="10385000" />
       <workItem from="1744289921071" duration="5809000" />
       <workItem from="1744356948001" duration="1154000" />
-      <workItem from="1744360718832" duration="66987000" />
+      <workItem from="1744360718832" duration="68893000" />
     </task>
     <servers />
   </component>

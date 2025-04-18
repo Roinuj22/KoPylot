@@ -23,11 +23,18 @@ export default function MesVehicules() {
     const [etatVehicule, setEtatVehicule] = useState("");
     const [dropdownVisible, setDropdownVisible] = useState(false);
     const [messagePro, setMessagePro] = useState("");
+    const [isClient, setIsClient] = useState(false); //  Sécurité Next.js
 
     useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    useEffect(() => {
+        if (!isClient) return; //  Empêche erreurs Vercel
+
         const saved = JSON.parse(localStorage.getItem("kopylotVehicule"));
         if (saved) setVehicule(saved);
-    }, []);
+    }, [isClient]);
 
     const handleAddClick = () => {
         if (vehicule) {
@@ -66,8 +73,11 @@ export default function MesVehicules() {
         }
     };
 
+    if (!isClient) return null; //  Ne rien afficher tant que ce n'est pas côté client
+
     return (
         <div className="mes-vehicules">
+            {/* HEADER */}
             <div className="header">
                 <div className="logo-vehicules">KoPylot</div>
                 <h1 style={{ fontSize: "2.8rem" }}>Mes véhicules</h1>
@@ -77,8 +87,10 @@ export default function MesVehicules() {
                 </div>
             </div>
 
+            {/* Message Pro */}
             {messagePro && <p className="message-pro">{messagePro}</p>}
 
+            {/* FORMULAIRE AJOUT */}
             {showForm && (
                 <form onSubmit={handleSubmit} className="formulaire-vehicule">
                     {formStep === 1 && (
@@ -138,6 +150,7 @@ export default function MesVehicules() {
                                 <option value="">Couleur</option>
                                 {suggestions.couleur.map(c => <option key={c} value={c}>{c}</option>)}
                             </select>
+
                             <h2>Utilisation et Assurance</h2>
                             <select name="utilisationPrincipale" value={formData.utilisationPrincipale || ""} onChange={handleChange}>
                                 <option value="">Utilisation principale</option>
@@ -180,6 +193,7 @@ export default function MesVehicules() {
                 </form>
             )}
 
+            {/* CARTE VEHICULE */}
             {vehicule && (
                 <div className="carte-vehicule">
                     <div className="image-zone">

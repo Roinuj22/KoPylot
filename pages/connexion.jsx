@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 export default function ConnexionPage() {
     const router = useRouter();
     const [message, setMessage] = useState("");
     const [messageType, setMessageType] = useState(""); // "success" | "error"
+    const [isClient, setIsClient] = useState(false); //  pour savoir si côté client
+
+    useEffect(() => {
+        setIsClient(true); //  Activer une fois monté côté navigateur
+    }, []);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -12,6 +17,8 @@ export default function ConnexionPage() {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
+
+        if (!isClient) return; //  Empêcher l'accès server-side
 
         const user = JSON.parse(localStorage.getItem("kopylotUser"));
 
@@ -23,7 +30,7 @@ export default function ConnexionPage() {
 
         if (email === user.email && password === user.password) {
             localStorage.setItem("connectedUser", JSON.stringify(user));
-            localStorage.setItem("isConnected", "true"); //
+            localStorage.setItem("isConnected", "true");
             setMessage("Connexion réussie !");
             setMessageType("success");
             setTimeout(() => {
@@ -35,6 +42,10 @@ export default function ConnexionPage() {
         }
     };
 
+    if (!isClient) {
+        return null; //  Ne rien afficher pendant le chargement serveur
+    }
+
     return (
         <div style={{ position: "relative" }}>
             {/* Retour Accueil */}
@@ -44,7 +55,6 @@ export default function ConnexionPage() {
 
             {/* Container global */}
             <div className="login-container">
-
                 {/* Partie Connexion */}
                 <div className="login-left">
                     <h1>Bienvenue sur <span className="kop-name">KoPylot</span></h1>
@@ -75,7 +85,6 @@ export default function ConnexionPage() {
                         <a href="/inscription" className="signup-link">Inscrivez-vous</a>
                     </div>
                 </div>
-
             </div>
         </div>
     );
