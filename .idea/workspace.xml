@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/profil.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/profil.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/MesVehicules.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/MesVehicules.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/accueilApresConnexion.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/accueilApresConnexion.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +72,7 @@
       <workItem from="1744272529431" duration="10385000" />
       <workItem from="1744289921071" duration="5809000" />
       <workItem from="1744356948001" duration="1154000" />
-      <workItem from="1744360718832" duration="70206000" />
+      <workItem from="1744360718832" duration="70592000" />
     </task>
     <servers />
   </component>

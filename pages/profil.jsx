@@ -28,12 +28,6 @@ export default function ProfilPage() {
                     >
                         ⚙️ Paramètres
                     </li>
-                    <li
-                        className={activeTab === "historique" ? "active" : ""}
-                        onClick={() => setActiveTab("historique")}
-                    >
-                        📚 Historique
-                    </li>
                     <li onClick={handleLogout}>👤 Se déconnecter</li>
                 </ul>
             </aside>

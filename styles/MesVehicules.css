@@ -13,13 +13,13 @@
     padding: 2rem;
 }
 
-/* ===== HEADER ===== */
+
 /* ===== HEADER ===== */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* 👈 pour éviter le débordement sur mobile */
+    flex-wrap: wrap;
     margin-bottom: 2rem;
     padding: 0 1rem;
 }
