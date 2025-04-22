@@ -32,13 +32,15 @@ export default function RappelsPage() {
                 <>
                     {/* Navigation */}
                     <nav className="rappels-nav">
-                        <h1>
-                            Rappels d'entretien
-                            <span className="icon clickable" onClick={() => handleClick("parametres")}>⚙️</span>
-                        </h1>
-                        <div className="rappels-links">
-                            <button onClick={() => handleClick("selection")}>Sélectionner Rappels</button>
-                            <button onClick={() => handleClick("trajet")}>Déclarer un trajet inhabituel</button>
+                        <div className="rappels-header">
+                            <h1>
+                                Rappels d'entretien
+                                <span className="icon clickable" onClick={() => handleClick("parametres")}>⚙️</span>
+                            </h1>
+                            <div className="rappels-links">
+                                <button onClick={() => handleClick("selection")}>Sélectionner Rappels</button>
+                                <button onClick={() => handleClick("trajet")}>Déclarer un trajet inhabituel</button>
+                            </div>
                         </div>
                     </nav>
 
