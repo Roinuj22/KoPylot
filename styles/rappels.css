@@ -1,0 +1,449 @@
+/* ===== PAGE RAPPELS ===== */
+.rappels-page {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #ffffff 0%, #7fb1ff 30%, #5195fe 60%, #0557d5 100%);
+    font-family: 'Segoe UI', sans-serif;
+    color: #111;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+/* ===== NAVIGATION ===== */
+.rappels-nav {
+    background: white;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.rappels-nav h1 {
+    font-size: 2.5rem;
+    color: #111827;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.rappels-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.rappels-links button {
+    background: transparent;
+    border: none;
+    color: black;
+    font-size: 1rem;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.rappels-links button:hover {
+    color: #003c9e;
+}
+
+/* ===== KILOMETRAGE SECTION ===== */
+.kilometrage-section {
+    background: #e0f2fe;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.text-blue {
+    color: #1d4ed8;
+    font-weight: bold;
+}
+.clickable {
+    cursor: pointer;
+    color: #1d4ed8;
+    font-weight: bold;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.clickable:hover {
+    color: #003c9e;
+    text-decoration: underline;
+}
+
+/* ===== RAPPEL CARD ===== */
+.rappel-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    margin-bottom: 2rem;
+    /*  pour centrer et réduire */
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card-header h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.filter-btn {
+    background: #111;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.filter-btn:hover {
+    background: #333;
+}
+
+.rappel-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.rappel-item {
+    background: #f3f4f6;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.rappel-item.urgent {
+    background: #f87171;
+    color: white;
+}
+
+.rappel-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.rappel-date {
+    font-size: 0.9rem;
+}
+
+.voir-tout {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.voir-tout a {
+    color: #1d4ed8;
+    font-size: 1rem;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* ===== FORMULAIRES ===== */
+.formulaires {
+    margin-top: 2rem;
+}
+
+/* ===== FORM CARD GENERAL ===== */
+.form-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-card h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Inputs / Selects */
+.form-card input,
+.form-card select {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+/* ===== SWITCH STYLING ===== */
+.selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.selection-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.selection-item .text {
+    display: flex;
+    flex-direction: column;
+}
+
+.selection-item small {
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+/* Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #111;
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
+/* ===== AUTRES ENTRETIENS ===== */
+.autres-entretiens {
+    margin-top: 1rem;
+}
+
+.autres-entretiens label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* ===== SAVE BUTTON ===== */
+.save-btn {
+    background: black;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 2rem;
+    transition: background 0.3s;
+}
+
+.save-btn:hover {
+    background: #333;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .rappels-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rappel-card {
+        padding: 1.5rem;
+    }
+
+    .form-card {
+        padding: 1.5rem;
+    }
+}
+/* ===== HEADER DES FORMULAIRES (Retour + Close) ===== */
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-btn, .close-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #1e40af;
+    font-weight: bold;
+}
+
+.back-btn:hover, .close-btn:hover {
+    color: #003c9e;
+}
+
+.close-btn {
+    font-size: 1.5rem;
+}
+.sous-formulaire {
+    background: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sous-formulaire h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.facture-upload {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.importer-btn {
+    background: #d1d5db;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    width: fit-content;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.importer-btn:hover {
+    background: #9ca3af;
+}
+
+.uploaded-file {
+    font-size: 0.9rem;
+    color: #374151;
+    margin-top: 0.5rem;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.popup-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+}
+
+.close-popup {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.popup-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.popup-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.popup-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.save-btn {
+    background: black;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 2rem;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.save-btn:hover {
+    background: #333;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}

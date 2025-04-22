@@ -52,7 +52,6 @@ export default function InscriptionPage() {
                     <input type="text" name="prenom" placeholder="Prénom" required />
                     <input type="email" name="email" placeholder="Email" required />
                     <input type="password" name="motdepasse" placeholder="Mot de passe" required />
-                    <input type="text" name="adresse" placeholder="Adresse" />
                     <input type="text" name="ville" placeholder="Ville" />
                     <select name="pays" required>
                         <option value="">Pays</option>
