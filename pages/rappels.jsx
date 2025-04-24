@@ -1,11 +1,32 @@
 import React, { useState, useEffect } from "react";
-
+import { Pencil, Wrench } from 'lucide-react';
 
 export default function RappelsPage() {
     const [activeForm, setActiveForm] = useState(null);
     const [kilometrageEstime, setKilometrageEstime] = useState(null);
+    const [popupData, setPopupData] = useState(null);
+    const [popupType, setPopupType] = useState(null);
+    const [rappelsActifs, setRappelsActifs] = useState([]);
+    const [messageSucces, setMessageSucces] = useState(null);
+    const [showAll, setShowAll] = useState(false);
+    const [newDate, setNewDate] = useState("");
+
+    const rappelsPredefinis = [
+        { nom: "Vidange huile", date: "01/02/2025", urgent: true },
+        { nom: "Changement des plaquettes de frein", date: "02/08/2025", urgent: false },
+        { nom: "Expiration du document \"assurance\"", date: "04/09/2025", urgent: false }
+    ];
 
     useEffect(() => {
+        //  Message de succès
+        const message = localStorage.getItem("messageSucces");
+        if (message) {
+            setMessageSucces(message);
+            localStorage.removeItem("messageSucces");
+            setTimeout(() => setMessageSucces(null), 3000);
+        }
+
+        // Kilométrage estimé
         const saved = localStorage.getItem("rappelKilometrage");
         if (saved) {
             const data = JSON.parse(saved);
@@ -15,22 +36,81 @@ export default function RappelsPage() {
                 setKilometrageEstime(data.totalKm);
             }
         }
-    }, []);
 
-    const handleClick = (formName) => {
-        setActiveForm(formName);
+        //  Rappels sélectionnés
+        const selection = JSON.parse(localStorage.getItem("rappelSelection")) || {};
+        const rappelsSelectionnes = Object.entries(selection.rappels || {})
+            .filter(([nom, actif]) => actif)
+            .map(([nom]) => ({
+                nom,
+                date: genererDateProchaine(),
+                urgent: nom.toLowerCase().includes("vidange"),
+                isNew:true
+            }));
+
+        //  Rappels déjà stockés
+        const preexistants = JSON.parse(localStorage.getItem("rappelsActifs") || "[]");
+
+        //  Fusion + suppression des doublons
+        const fusion = [...preexistants, ...rappelsPredefinis, ...rappelsSelectionnes];
+        const uniques = fusion.filter(
+            (rappel, index, self) =>
+                index === self.findIndex(r => r.nom === rappel.nom)
+        );
+
+        setRappelsActifs(uniques);
+        localStorage.setItem("rappelsActifs", JSON.stringify(uniques));
+    }, [activeForm]);
+
+    const genererDateProchaine = () => {
+        const d = new Date();
+        d.setMonth(d.getMonth() + 1);
+        return d.toLocaleDateString("fr-FR");
     };
+
+    const handleClick = (formName) => setActiveForm(formName);
 
     const handleKilometrageSave = (km) => {
         setKilometrageEstime(km);
         setActiveForm(null);
     };
 
+    const handlePopupSave = () => {
+        if (popupType === "done") {
+            const updated = rappelsActifs.filter(r => r.nom !== popupData.nom);
+            setRappelsActifs(updated);
+            localStorage.setItem("rappelsActifs", JSON.stringify(updated));
+            //Supprime aussi du rappelSelection (localStorage)
+            const selection = JSON.parse(localStorage.getItem("rappelSelection")) || {};
+            if (selection.rappels && selection.rappels[popupData.nom]) {
+                delete selection.rappels[popupData.nom];
+                localStorage.setItem("rappelSelection", JSON.stringify(selection));
+            }
+            setMessageSucces("✅ Entretien enregistré avec succès !");
+        } else if (popupType === "edit") {
+            if (!newDate) return; // ne fait rien si aucune date saisie
+
+            const updated = rappelsActifs.map(r =>
+                r.nom === popupData.nom ? { ...r, date: new Date(newDate).toLocaleDateString("fr-FR") } : r
+            );
+
+            setRappelsActifs(updated);
+            localStorage.setItem("rappelsActifs", JSON.stringify(updated));
+
+            setMessageSucces("✏️ Date modifiée avec succès !");
+        }
+        setTimeout(() => setMessageSucces(null), 3000);
+        setPopupData(null);
+    };
+
     return (
         <div className="rappels-page">
+            {messageSucces && (
+                <div className="notif-succes">{messageSucces}</div>
+            )}
+
             {activeForm === null && (
                 <>
-                    {/* Navigation */}
                     <nav className="rappels-nav">
                         <div className="rappels-header">
                             <h1>
@@ -44,50 +124,79 @@ export default function RappelsPage() {
                         </div>
                     </nav>
 
-                    {/* Section Estimer kilométrage */}
                     <div className="kilometrage-section">
-                        <p className="clickable" onClick={() => handleClick("kilometrage")}>
-                            ✅ <span className="text-blue underline">Estimer votre kilométrage</span>
-                        </p>
-                        <p>
-                            Votre kilométrage estimé est de {kilometrageEstime ? `${kilometrageEstime} km` : ".... km"} ✏️
-                        </p>
+                        <p className="clickable" onClick={() => handleClick("kilometrage")}>✅ <span className="text-blue underline">Estimer votre kilométrage</span></p>
+                        <p>Votre kilométrage estimé est de {kilometrageEstime ? `${kilometrageEstime} km` : ".... km"} ✏️</p>
                     </div>
 
-                    {/* Carte Rappels */}
                     <div className="rappel-card">
                         <div className="card-header">
                             <h2>RAPPEL À VENIR</h2>
                             <button className="filter-btn">Filtrer</button>
                         </div>
+
                         <div className="rappel-list">
-                            <div className="rappel-item urgent">
-                                <div className="info">
-                                    <p className="title">Vidange huile</p>
-                                    <p className="date">01/02/2025</p>
+                            {(showAll ? rappelsActifs : rappelsActifs.slice(0, 3)).map((rappel, index) => (
+                                <div key={index} className={`rappel-item ${rappel.urgent ? "urgent" : ""}`}>
+                                    <div className="info">
+                                        <p className="rappel-title">{rappel.nom}
+                                            {rappel.isNew && <span className="badge-nouveau">Nouveau</span>}
+                                        </p>
+                                        <p className="rappel-date">{rappel.date}</p>
+                                    </div>
+                                    <div className="rappel-actions">
+                                        <Pencil size={20} color="#000" onClick={() => { setPopupData(rappel); setPopupType("edit"); }} />
+                                        <Wrench size={20} color="#000" onClick={() => { setPopupData(rappel); setPopupType("done"); }} />
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="rappel-item">
-                                <div className="info">
-                                    <p className="title">Changement des plaquettes de frein</p>
-                                    <p className="date">02/08/2025</p>
-                                </div>
-                            </div>
-                            <div className="rappel-item">
-                                <div className="info">
-                                    <p className="title">Expiration du document "assurance"</p>
-                                    <p className="date">04/09/2025</p>
-                                </div>
-                            </div>
+                            ))}
                         </div>
-                        <div className="voir-tout">
-                            <a href="#">Voir tout</a>
-                        </div>
+
+                        {rappelsActifs.length > 3 && (
+                            <div className="voir-tout">
+                                <button onClick={() => setShowAll(!showAll)}>
+                                    {showAll ? "Réduire" : "Voir plus"}
+                                </button>
+                            </div>
+                        )}
                     </div>
+
+                    {popupData && (
+                        <div className="popup-overlay">
+                            <div className="popup-content">
+                                <button className="close-btn" onClick={() => setPopupData(null)}>✖️</button>
+
+                                {popupType === "done" && (
+                                    <div className="popup-grid">
+                                        <div className="facture-section">
+                                            <p><strong>Facture</strong><br /><small>Les données seront rentrées automatiquement</small></p>
+                                            <button>Importer</button>
+                                        </div>
+                                        <div className="form-section">
+                                            <input type="date" placeholder="Date du dernier entretien" />
+                                            <select>
+                                                <option>Chez soi</option>
+                                                <option>Garage</option>
+                                            </select>
+                                            <input type="text" placeholder="Coût (€)" />
+                                        </div>
+                                    </div>
+                                )}
+
+                                {popupType === "edit" && (
+                                    <div className="form-section">
+                                        <label>Modifier la date</label>
+                                        <input type="date" value={newDate} onChange={(e) => setNewDate(e.target.value)} />
+                                    </div>
+                                )}
+
+                                <button className="save-btn" onClick={handlePopupSave}>Enregistrer</button>
+                            </div>
+                        </div>
+                    )}
                 </>
             )}
 
-            {/* Formulaires dynamiques */}
             {activeForm === "kilometrage" && <FormulaireKilometrage onSave={handleKilometrageSave} onBack={() => setActiveForm(null)} />}
             {activeForm === "selection" && <SelectionnerRappels onBack={() => setActiveForm(null)} />}
             {activeForm === "trajet" && <FormulaireTrajet onBack={() => setActiveForm(null)} />}
@@ -95,7 +204,6 @@ export default function RappelsPage() {
         </div>
     );
 }
-
 /* === Formulaire Estimation Kilométrage === */
 function FormulaireKilometrage({ onSave, onBack }) {
     const [reponses, setReponses] = useState({});
@@ -106,13 +214,20 @@ function FormulaireKilometrage({ onSave, onBack }) {
 
     const handleSave = () => {
         let finalKm = 0;
+
         if (reponses.estimation === "oui" && reponses.saisieManuelle) {
-            finalKm = reponses.saisieManuelle;
+            finalKm = parseInt(reponses.saisieManuelle) || 0;
+
         } else if (reponses.estimation === "non") {
-            const weekEndKm = (parseInt(reponses.trajetWeekEndJours) || 0) * (parseInt(reponses.trajetWeekEndKm) || 0);
-            const semaineKm = (parseInt(reponses.trajetSemaineJours) || 0) * (parseInt(reponses.trajetSemaineKm) || 0);
-            finalKm = weekEndKm + semaineKm;
+            if (reponses.trajetDifferencie === "oui") {
+                const weekEndKm = (parseInt(reponses.trajetWeekEndJours) || 0) * (parseInt(reponses.trajetWeekEndKm) || 0);
+                const semaineKm = (parseInt(reponses.trajetSemaineJours) || 0) * (parseInt(reponses.trajetSemaineKm) || 0);
+                finalKm = weekEndKm + semaineKm;
+            } else if (reponses.trajetDifferencie === "non") {
+                finalKm = (parseInt(reponses.joursTrajet) || 0) * (parseInt(reponses.kmParJour) || 0);
+            }
         }
+
         localStorage.setItem("rappelKilometrage", JSON.stringify({ ...reponses, totalKm: finalKm }));
         onSave(finalKm);
     };
@@ -124,10 +239,11 @@ function FormulaireKilometrage({ onSave, onBack }) {
                 <button className="close-btn" onClick={onBack}>✖️</button>
             </div>
 
-            <h2>Estimation kilométrage</h2>
+            <h2>Estimation du kilométrage</h2>
 
+            <label>Connaissez-vous votre kilométrage mensuel moyen ?</label>
             <select name="estimation" onChange={handleChange}>
-                <option value="">-- Estimation mensuelle ? --</option>
+                <option value="">-- Choisir --</option>
                 <option value="oui">Oui</option>
                 <option value="non">Non</option>
             </select>
@@ -136,22 +252,43 @@ function FormulaireKilometrage({ onSave, onBack }) {
                 <input
                     type="number"
                     name="saisieManuelle"
-                    placeholder="Saisir votre kilométrage mensuel"
+                    placeholder="Saisir votre estimation mensuelle (km)"
                     onChange={handleChange}
                 />
             )}
 
             {reponses.estimation === "non" && (
                 <>
-                    <input type="number" name="trajetWeekEndJours" placeholder="Jours trajet week-end" onChange={handleChange} />
-                    <input type="number" name="trajetWeekEndKm" placeholder="Km par jour week-end" onChange={handleChange} />
-                    <input type="number" name="trajetSemaineJours" placeholder="Jours trajet semaine" onChange={handleChange} />
-                    <input type="number" name="trajetSemaineKm" placeholder="Km par jour semaine" onChange={handleChange} />
+                    <label>Vos trajets sont-ils différents entre semaine et week-end ?</label>
+                    <select name="trajetDifferencie" onChange={handleChange}>
+                        <option value="">-- Choisir --</option>
+                        <option value="oui">Oui</option>
+                        <option value="non">Non</option>
+                    </select>
+
+                    {/* Cas différencié */}
+                    {reponses.trajetDifferencie === "oui" && (
+                        <>
+                            <input type="number" name="trajetSemaineJours" placeholder="Jours de trajet en semaine" onChange={handleChange} />
+                            <input type="number" name="trajetSemaineKm" placeholder="Km par jour en semaine" onChange={handleChange} />
+                            <input type="number" name="trajetWeekEndJours" placeholder="Jours de trajet week-end" onChange={handleChange} />
+                            <input type="number" name="trajetWeekEndKm" placeholder="Km par jour week-end" onChange={handleChange} />
+                        </>
+                    )}
+
+                    {/* Cas non différencié */}
+                    {reponses.trajetDifferencie === "non" && (
+                        <>
+                            <input type="number" name="joursTrajet" placeholder="Nombre de jours de trajet par semaine" onChange={handleChange} />
+                            <input type="number" name="kmParJour" placeholder="Distance moyenne par jour (km)" onChange={handleChange} />
+                        </>
+                    )}
                 </>
             )}
 
+            <label>Quel est le type de vos trajets ?</label>
             <select name="typeTrajet" onChange={handleChange}>
-                <option value="">-- Type de trajet --</option>
+                <option value="">-- Choisir --</option>
                 <option value="urbain">Principalement urbain</option>
                 <option value="routier">Principalement routier</option>
                 <option value="mixte">Mixte</option>
@@ -161,7 +298,6 @@ function FormulaireKilometrage({ onSave, onBack }) {
         </div>
     );
 }
-
 /* === Formulaire Sélectionner Rappels === */
 function SelectionnerRappels({ onBack }) {
     const [rappels, setRappels] = useState({});
@@ -186,12 +322,10 @@ function SelectionnerRappels({ onBack }) {
     const handleToggle = (nom) => {
         setRappels(prev => ({ ...prev, [nom]: !prev[nom] }));
 
-        if (nom === "Remplacement des filtres" && !rappels[nom]) {
-            setPopupForm("filtres");
-        }
-
         if (nom === "Contrôle technique" && !rappels[nom]) {
             setPopupForm("controle");
+        } else if (!rappels[nom]) {
+            setPopupForm("filtres");
         }
     };
 
@@ -203,7 +337,11 @@ function SelectionnerRappels({ onBack }) {
             controleTechniqueDetails: rappels["Contrôle technique"] ? controleTechnique : null
         };
         localStorage.setItem("rappelSelection", JSON.stringify(data));
-        alert("Rappels sélectionnés !");
+
+        //une notification visible sur la page d’accueil
+        localStorage.setItem("messageSucces", "✅ Rappels enregistrés avec succès !");
+
+        // Retour automatique
         onBack();
     };
 
@@ -389,6 +527,7 @@ function FormulaireTrajet({ onBack }) {
         </div>
     );
 }
+/*formulaire Parametre*/
 function FormulaireParametres({ onBack }) {
     const [rappelMoment, setRappelMoment] = useState("");
     const [notificationType, setNotificationType] = useState("");

@@ -102,7 +102,6 @@
     border-radius: 1.5rem;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     margin-bottom: 2rem;
-    /*  pour centrer et réduire */
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -147,6 +146,7 @@
     padding: 1rem;
     border-radius: 1rem;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 1rem;
 }
@@ -170,11 +170,41 @@
     margin-top: 1.5rem;
 }
 
-.voir-tout a {
+.voir-tout button {
     color: #1d4ed8;
     font-size: 1rem;
     text-decoration: underline;
     font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.rappel-actions {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.rappel-actions span:hover {
+    transform: scale(1.1);
+    color: #1d4ed8;
+    transition: all 0.2s ease;
+}
+.badge-nouveau {
+    background-color: #10b981;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 0.2rem 0.5rem;
+    margin-left: 0.5rem;
+    border-radius: 8px;
 }
 
 /* ===== FORMULAIRES ===== */
@@ -464,4 +494,111 @@ input:checked + .slider:before {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+}
+
+/* ===== POPUP OVERLAY ===== */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.popup-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== GRILLE DANS POPUP ===== */
+.popup-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.popup-content .form-section input,
+.popup-content .form-section select {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+}
+
+/* ===== IMPORT FACTURE ===== */
+.facture-section button {
+    padding: 0.5rem 1rem;
+    border: 1px solid gray;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #eee;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+.facture-section p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #444;
+}
+
+/* ===== BOUTONS POPUP ===== */
+.popup-content button.save-btn {
+    background: black;
+    color: white;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ===== NOTIFICATION SUCCÈS ===== */
+.notif-succes {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #10b981;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-10px) translateX(-50%); }
+    10%, 90% { opacity: 1; transform: translateY(0) translateX(-50%); }
+    100% { opacity: 0; transform: translateY(-10px) translateX(-50%); }
+}
+
+/* ===== RESPONSIVE POUR POPUP ===== le BONNNNNNNNNN */
+@media (max-width: 768px) {
+    .popup-grid {
+        grid-template-columns: 1fr;
+    }
 }
