@@ -10,11 +10,11 @@
 
 /* ===== NAVIGATION ===== */
 .rappels-nav {
-    background: white;
-    padding: 2rem;
-    border-radius: 1.5rem;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 1rem;
     text-align: center;
 }
 
@@ -601,4 +601,13 @@ input:checked + .slider:before {
     .popup-grid {
         grid-template-columns: 1fr;
     }
+}
+
+.selected-cat {
+    background-color: #2563eb;
+    color: black;
+    border-radius: 8px;
+    padding: 0.4rem 0.8rem;
+    font-weight: bold;
+    border: none;
 }

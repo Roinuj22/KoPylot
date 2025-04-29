@@ -82,7 +82,7 @@ export default function AccueilApresConnexion() {
                 <div className="nav-left">
                     <a href="/MesVehicules">Mes véhicules</a>
                     <a href="/rappels">Rappels</a>
-                    <a href="#">Checklist</a>
+                    <a href="/cheecklist">Checklist</a>
                     <a href="#">Suivi des dépenses</a>
                     <a href="#">Rapport véhicule</a>
                 </div>

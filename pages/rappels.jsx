@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Pencil, Wrench } from 'lucide-react';
 
+
 export default function RappelsPage() {
     const [activeForm, setActiveForm] = useState(null);
     const [kilometrageEstime, setKilometrageEstime] = useState(null);
@@ -10,6 +11,11 @@ export default function RappelsPage() {
     const [messageSucces, setMessageSucces] = useState(null);
     const [showAll, setShowAll] = useState(false);
     const [newDate, setNewDate] = useState("");
+    // filtre
+    const [showFiltrePopup, setShowFiltrePopup] = useState(false);
+    const [filtreCategorie, setFiltreCategorie] = useState("Tous");
+    const [filtreHistorique, setFiltreHistorique] = useState(false);
+    const [filtrePeriode, setFiltrePeriode] = useState({ de: "", a: "" });
 
     const rappelsPredefinis = [
         { nom: "Vidange huile", date: "01/02/2025", urgent: true },
@@ -126,13 +132,13 @@ export default function RappelsPage() {
 
                     <div className="kilometrage-section">
                         <p className="clickable" onClick={() => handleClick("kilometrage")}>✅ <span className="text-blue underline">Estimer votre kilométrage</span></p>
-                        <p>Votre kilométrage estimé est de {kilometrageEstime ? `${kilometrageEstime} km` : ".... km"} ✏️</p>
+                        <p>Votre kilométrage estimé est de {kilometrageEstime ? `${kilometrageEstime} km` : ".... km"} </p>
                     </div>
 
                     <div className="rappel-card">
                         <div className="card-header">
                             <h2>RAPPEL À VENIR</h2>
-                            <button className="filter-btn">Filtrer</button>
+                            <button className="filter-btn" onClick={() => setShowFiltrePopup(true)}>Filtrer</button>
                         </div>
 
                         <div className="rappel-list">
@@ -170,7 +176,12 @@ export default function RappelsPage() {
                                     <div className="popup-grid">
                                         <div className="facture-section">
                                             <p><strong>Facture</strong><br /><small>Les données seront rentrées automatiquement</small></p>
-                                            <button>Importer</button>
+
+                                            {/* Input caché */}
+                                            <input type="file" id="factureGenerique" onChange={(e) => handleFileUpload("filtres", e)} hidden />
+
+                                            {/* Label qui déclenche le input */}
+                                            <label htmlFor="factureGenerique" className="importer-btn">Importer</label>
                                         </div>
                                         <div className="form-section">
                                             <input type="date" placeholder="Date du dernier entretien" />
@@ -201,6 +212,90 @@ export default function RappelsPage() {
             {activeForm === "selection" && <SelectionnerRappels onBack={() => setActiveForm(null)} />}
             {activeForm === "trajet" && <FormulaireTrajet onBack={() => setActiveForm(null)} />}
             {activeForm === "parametres" && <FormulaireParametres onBack={() => setActiveForm(null)} />}
+
+            {showFiltrePopup && (
+                <div className="popup-overlay">
+                    <div className="popup-content" style={{ maxWidth: "400px" }}>
+                        <button className="close-btn" onClick={() => setShowFiltrePopup(false)}>✖️</button>
+
+                        <h3>Filtres</h3>
+
+                        {/* Tri - optionnel */}
+                        <label htmlFor="tri">Trier par</label>
+                        <select id="tri" className="form-select" disabled>
+                            <option>Trier par</option>
+                        </select>
+
+                        {/* Période */}
+                        <div className="periode-section" style={{ marginTop: "1rem" }}>
+                            <label>Période</label>
+                            <div style={{ display: "flex", gap: "0.5rem", marginTop: "0.3rem" }}>
+                                <input
+                                    type="date"
+                                    value={filtrePeriode.de}
+                                    onChange={(e) => setFiltrePeriode(prev => ({ ...prev, de: e.target.value }))}
+                                />
+                                <input
+                                    type="date"
+                                    value={filtrePeriode.a}
+                                    onChange={(e) => setFiltrePeriode(prev => ({ ...prev, a: e.target.value }))}
+                                />
+                            </div>
+                        </div>
+
+                        {/* Catégories */}
+                        <div className="categories-section" style={{ marginTop: "1rem" }}>
+                            <label>Catégories</label>
+                            <div className="btn-group" style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginTop: "0.3rem" }}>
+                                {["Tous", "Mécanique & Moteur", "Sécurité & Confort", "Conformité"].map(cat => (
+                                    <button
+                                        key={cat}
+                                        className={filtreCategorie === cat ? "selected-cat" : ""}
+                                        onClick={() => setFiltreCategorie(cat)}
+                                        type="button"
+                                    >
+                                        {cat}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Historique */}
+                        <div className="historique-section" style={{ marginTop: "1.5rem" }}>
+                            <label style={{ fontWeight: "bold", display: "block", marginBottom: "0.3rem" }}>Historique</label>
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    checked={filtreHistorique}
+                                    onChange={(e) => setFiltreHistorique(e.target.checked)}
+                                />
+                                <span style={{ marginLeft: "0.5rem" }}>Afficher uniquement les entretiens passés</span>
+                            </label>
+                        </div>
+
+                        {/* Boutons bas */}
+                        <div className="popup-actions" style={{ marginTop: "2rem", display: "flex", justifyContent: "space-between" }}>
+                            <button
+                                onClick={() => {
+                                    setFiltreCategorie("Tous");
+                                    setFiltreHistorique(false);
+                                    setFiltrePeriode({ de: "", a: "" });
+                                }}
+                                style={{ color: "black", background: "none", border: "none", fontWeight: "bold", cursor: "pointer" }}
+                            >
+                                Réinitialiser
+                            </button>
+
+                            <button
+                                className="save-btn"
+                                onClick={() => setShowFiltrePopup(false)}
+                            >
+                                Appliquer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
@@ -266,21 +361,44 @@ function FormulaireKilometrage({ onSave, onBack }) {
                         <option value="non">Non</option>
                     </select>
 
-                    {/* Cas différencié */}
                     {reponses.trajetDifferencie === "oui" && (
                         <>
-                            <input type="number" name="trajetSemaineJours" placeholder="Jours de trajet en semaine" onChange={handleChange} />
-                            <input type="number" name="trajetSemaineKm" placeholder="Km par jour en semaine" onChange={handleChange} />
-                            <input type="number" name="trajetWeekEndJours" placeholder="Jours de trajet week-end" onChange={handleChange} />
-                            <input type="number" name="trajetWeekEndKm" placeholder="Km par jour week-end" onChange={handleChange} />
+                            <label>Jours de trajet en semaine</label>
+                            <select name="trajetSemaineJours" onChange={handleChange}>
+                                <option value="">-- Choisir --</option>
+                                {[...Array(6).keys()].map((n) => (
+                                    <option key={n} value={n}>{n}</option>
+                                ))}
+                            </select>
+
+                            <label>Km par jour en semaine</label>
+                            <input type="number" name="trajetSemaineKm" onChange={handleChange} />
+
+                            <label>Jours de trajet week-end</label>
+                            <select name="trajetWeekEndJours" onChange={handleChange}>
+                                <option value="">-- Choisir --</option>
+                                {[...Array(3).keys()].map((n) => (
+                                    <option key={n} value={n}>{n}</option>
+                                ))}
+                            </select>
+
+                            <label>Km par jour week-end</label>
+                            <input type="number" name="trajetWeekEndKm" onChange={handleChange} />
                         </>
                     )}
 
-                    {/* Cas non différencié */}
                     {reponses.trajetDifferencie === "non" && (
                         <>
-                            <input type="number" name="joursTrajet" placeholder="Nombre de jours de trajet par semaine" onChange={handleChange} />
-                            <input type="number" name="kmParJour" placeholder="Distance moyenne par jour (km)" onChange={handleChange} />
+                            <label>Nombre de jours de trajet par semaine</label>
+                            <select name="joursTrajet" onChange={handleChange}>
+                                <option value="">-- Choisir --</option>
+                                {[...Array(8).keys()].map((n) => (
+                                    <option key={n} value={n}>{n}</option>
+                                ))}
+                            </select>
+
+                            <label>Distance moyenne par jour (km)</label>
+                            <input type="number" name="kmParJour" onChange={handleChange} />
                         </>
                     )}
                 </>
@@ -509,19 +627,14 @@ function FormulaireTrajet({ onBack }) {
 
             <h2>Déclarer un trajet inhabituel</h2>
 
-            <select name="declarer" onChange={handleChange}>
-                <option value="">-- Déclarer un trajet exceptionnel --</option>
-                <option value="oui">Oui</option>
-                <option value="non">Non</option>
-            </select>
+            <label>Type de trajet (vacances, travail...)</label>
+            <input name="typeTrajet" onChange={handleChange} />
 
-            {trajet.declarer === "oui" && (
-                <>
-                    <input name="typeTrajet" placeholder="Type de trajet (vacances, travail...)" onChange={handleChange} />
-                    <input name="periode" placeholder="Période concernée" onChange={handleChange} />
-                    <input name="kmSupp" placeholder="Kilométrage supplémentaire" onChange={handleChange} />
-                </>
-            )}
+            <label>Période concernée</label>
+            <input name="periode" onChange={handleChange} />
+
+            <label>Kilométrage supplémentaire</label>
+            <input name="kmSupp" onChange={handleChange} />
 
             <button onClick={handleSave} className="save-btn">Enregistrer</button>
         </div>

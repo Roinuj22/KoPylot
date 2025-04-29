@@ -1,0 +1,302 @@
+/* === PAGE GLOBALE === */
+.cheeklist-page {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #ffffff 0%, #7fb1ff 30%, #5195fe 60%, #0557d5 100%);
+    font-family: 'Segoe UI', sans-serif;
+    color: #111;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+/* === TITRE === */
+.page-title {
+    text-align: left;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+}
+
+/* === VOITURE ROTATIVE === */
+.car-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.car-rotation-wrapper {
+    position: relative;
+    width: 500px;
+    animation: slow-spin 60s linear infinite;
+}
+
+.paused {
+    animation-play-state: paused;
+}
+
+@keyframes slow-spin {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+.rotating-car {
+    width: 100%;
+    display: block;
+}
+
+.hotspot {
+    position: absolute;
+    background-color: #007bff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+/* === RECAPITULATIF === */
+.recap-card {
+    margin: 4rem auto;
+    background: white;
+    border-radius: 20px;
+    width: 500px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.recap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.export-btn {
+    background: #0557d5;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.separator {
+    margin: 1rem 0;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+.recap-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.recap-list li {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+}
+
+.with-warning .warning-icon {
+    color: red;
+}
+
+/* === POPUP === */
+.popup-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: linear-gradient(to bottom, #ffffff 0%, #7fb1ff 30%, #5195fe 60%, #0557d5 100%);
+    border-radius: 20px;
+    width: 80%;
+    max-width: 900px;
+    padding: 2rem;
+    position: relative;
+    color: black;
+}
+
+.popup-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* === LAYOUT INTERNE DU POPUP === */
+.popup-body {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.popup-left {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.popup-note {
+    font-size: 0.8rem;
+    color: gray;
+    display: block;
+    margin-top: 0.3rem;
+}
+
+.popup-right {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* === LIENS ET VIDEO === */
+.popup-links {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.popup-links a {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.popup-video {
+    background: #000;
+    border-radius: 10px;
+    width: 100%;
+    aspect-ratio: 16/9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.video-player {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    position: relative;
+}
+
+.play-button {
+    width: 0;
+    height: 0;
+    border-left: 20px solid white;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+/* === BOUTON ENREGISTRER === */
+.popup-footer {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.save-btn {
+    background-color: black;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+/* === SOUS-CHECKBOXES (PNEUMATIQUES) === */
+.checkbox-group {
+    margin-bottom: 2rem;
+}
+
+.subsection {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.description-block {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.description-block textarea {
+    width: 100%;
+    min-height: 80px;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    resize: none;
+}
+
+.upload-btn {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #ccc;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .car-rotation-wrapper {
+        width: 90vw;
+    }
+
+    .popup-body {
+        flex-direction: column;
+    }
+
+    .popup-content {
+        padding: 1rem;
+    }
+
+    .recap-card {
+        width: 90%;
+        margin-top: 2rem;
+    }
+
+    .hotspot {
+        width: 24px;
+        height: 24px;
+        font-size: 14px;
+    }
+}
