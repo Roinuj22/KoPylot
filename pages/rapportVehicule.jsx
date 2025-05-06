@@ -85,52 +85,54 @@ export default function RapportVehicule() {
                 </div>
             </div>
         </div>
-
         <div className="card">
             <h2>Historique des entretiens</h2>
-            <table>
-                <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Type d'entretien</th>
-                    <th>Lieu</th>
-                    <th>Montant</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>10/03/2025</td>
-                    <td>Vidange + filtre huile</td>
-                    <td>Norauto</td>
-                    <td>88,00 €</td>
-                </tr>
-                <tr>
-                    <td>12/12/2024</td>
-                    <td>Freins avant</td>
-                    <td>Garage Renaud</td>
-                    <td>135,00 €</td>
-                </tr>
-                <tr>
-                    <td>08/03/2024</td>
-                    <td>Pneus avant</td>
-                    <td>AutoCenter</td>
-                    <td>220,00 €</td>
-                </tr>
-                <tr>
-                    <td>02/08/2024</td>
-                    <td>Batterie remplacée</td>
-                    <td>Fait maison</td>
-                    <td>110,00 €</td>
-                </tr>
-                <tr>
-                    <td>10/03/2023</td>
-                    <td>Climatisation (nettoyage)</td>
-                    <td>Norauto</td>
-                    <td>49,00 €</td>
-                </tr>
-                </tbody>
-            </table>
+            <div className="table-container">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Type d'entretien</th>
+                        <th>Lieu</th>
+                        <th>Montant</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>10/03/2025</td>
+                        <td>Vidange + filtre huile</td>
+                        <td>Norauto</td>
+                        <td>88,00 €</td>
+                    </tr>
+                    <tr>
+                        <td>12/12/2024</td>
+                        <td>Freins avant</td>
+                        <td>Garage Renaud</td>
+                        <td>135,00 €</td>
+                    </tr>
+                    <tr>
+                        <td>08/03/2024</td>
+                        <td>Pneus avant</td>
+                        <td>AutoCenter</td>
+                        <td>220,00 €</td>
+                    </tr>
+                    <tr>
+                        <td>02/08/2024</td>
+                        <td>Batterie remplacée</td>
+                        <td>Fait maison</td>
+                        <td>110,00 €</td>
+                    </tr>
+                    <tr>
+                        <td>10/03/2023</td>
+                        <td>Climatisation (nettoyage)</td>
+                        <td>Norauto</td>
+                        <td>49,00 €</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+
 
         <div className="card">
             <h2>Etat du véhicule</h2>

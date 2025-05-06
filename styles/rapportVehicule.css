@@ -141,6 +141,18 @@ th, td {
     text-align: left;
 }
 
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-container table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+}
+
+
 /*share*/
 .share-modal {
     position: fixed;
