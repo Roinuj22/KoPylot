@@ -84,7 +84,7 @@ export default function AccueilApresConnexion() {
                     <a href="/rappels">Rappels</a>
                     <a href="/cheecklist">Checklist</a>
                     <a href="#">Suivi des dépenses</a>
-                    <a href="#">Rapport véhicule</a>
+                    <a href="/rapportVehicule">Rapport véhicule</a>
                 </div>
                 <div className="nav-center logo">KoPylot</div>
                 <div className="nav-right">
