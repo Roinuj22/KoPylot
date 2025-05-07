@@ -1,0 +1,134 @@
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    position: relative;
+    min-height: 80px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Logo à gauche */
+.nav-left {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo-image {
+    width: auto;
+    height: 80px;
+    object-fit: contain;
+}
+
+/* Liens au milieu */
+.nav-center {
+    display: flex;
+    gap: 2rem;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-center a {
+    text-decoration: none;
+    color: #000; /* noir pro */
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-center a:hover {
+    color: #555; /* subtil changement */
+}
+
+/* Profil à droite */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+    position: relative;
+    padding-right: 3rem;
+}
+
+.profile-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2.2rem;
+    color: #000;
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-button:hover {
+    transform: scale(1.1);
+}
+
+/* Popup menu */
+.profile-popup {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.profile-popup a {
+    padding: 0.75rem;
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s;
+}
+
+.profile-popup a:hover {
+    background-color: #f5f5f5;
+}
+
+.logout {
+    background-color: #000;
+    color: white !important;
+    font-weight: 500;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.logout:hover {
+    background-color: #333;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .nav-center {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .nav-right {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+}

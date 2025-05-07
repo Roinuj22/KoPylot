@@ -24,12 +24,15 @@ export default function HomePage() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+
+
     const features = [
         {
             title: "Rappels d'entretien",
             description: "Ne ratez plus aucune révision ou contrôle technique. On vous alerte au bon moment, sans stress.",
             image: "/image/Rappel.jpg",
         },
+
         {
             title: "Checklist",
             description: "Inspectez facilement votre véhicule avec notre checklist guidée. Parfait avant un long trajet ou un contrôle mensuel.",
@@ -125,4 +128,9 @@ export default function HomePage() {
             </div>
         </div>
     );
+
+
 }
+
+// bar de navigation
+HomePage.noNavbar = true;

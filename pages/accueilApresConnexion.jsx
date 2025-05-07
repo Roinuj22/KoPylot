@@ -76,23 +76,25 @@ export default function AccueilApresConnexion() {
     }
 
     return (
-        <div className="page-connectee">
+         <div className="page-connectee">
             {/* === NAVBAR CONNECTÉE === */}
-            <nav className="navbar-connectee">
-                <div className="nav-left">
-                    <a href="/MesVehicules">Mes véhicules</a>
-                    <a href="/rappels">Rappels</a>
-                    <a href="/cheecklist">Checklist</a>
-                    <a href="#">Suivi des dépenses</a>
-                    <a href="/rapportVehicule">Rapport véhicule</a>
-                </div>
-                <div className="nav-center logo">KoPylot</div>
-                <div className="nav-right">
-                    <a href="/profil" className="profile-icon" style={{ textDecoration: "none", fontSize: "1.8rem", color: "#0557d5" }}>
-                        👤
-                    </a>
-                </div>
-            </nav>
+            {/* */}
+            {/*<nav className="navbar-connectee">*/}
+            {/*    <div className="nav-left">*/}
+            {/*        <a href="/MesVehicules">Mes véhicules</a>*/}
+            {/*        <a href="/rappels">Rappels</a>*/}
+            {/*        <a href="/cheecklist">Checklist</a>*/}
+            {/*        <a href="#">Suivi des dépenses</a>*/}
+            {/*        <a href="/rapportVehicule">Rapport véhicule</a>*/}
+            {/*    </div>*/}
+            {/*    <div className="nav-center logo">KoPylot</div>*/}
+            {/*    <div className="nav-right">*/}
+            {/*        <a href="/profil" className="profile-icon" style={{ textDecoration: "none", fontSize: "1.8rem", color: "#0557d5" }}>*/}
+            {/*            👤*/}
+            {/*        </a>*/}
+            {/*    </div>*/}
+            {/*</nav>*/}
+
 
             {/* === DASHBOARD === */}
             <div className="dashboard-contenu">
@@ -139,3 +141,4 @@ export default function AccueilApresConnexion() {
         </div>
     );
 }
+

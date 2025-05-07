@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import AccueilApresConnexion from "./accueilApresConnexion";
 
 export default function ConnexionPage() {
     const router = useRouter();
@@ -89,3 +90,6 @@ export default function ConnexionPage() {
         </div>
     );
 }
+
+// bar de navigation
+ConnexionPage.noNavbar = true;
