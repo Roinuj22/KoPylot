@@ -5,29 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fcfada0-7197-490e-97dc-929794e587c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/themeContext.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/documents.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/parametre.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/documents.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/parametre.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/cheecklist.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/checklist.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/inscription.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/inscription.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/profil.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/profil.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/MesVehicules.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/MesVehicules.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/accueilApresConnexion.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/accueilApresConnexion.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/cheecklist.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/checklist.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/connexion.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/connexion.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/inscription.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/inscription.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/profil.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/profil.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/rappels.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/rappels.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/rapportVehicule.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/rapportVehicule.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/themeContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ThemeContext.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +81,7 @@
       <workItem from="1745828513668" duration="35001000" />
       <workItem from="1746449117002" duration="5610000" />
       <workItem from="1746516974791" duration="21923000" />
-      <workItem from="1747034535037" duration="25914000" />
+      <workItem from="1747034535037" duration="27425000" />
     </task>
     <servers />
   </component>
