@@ -1,11 +1,19 @@
-/* === PAGE GLOBALE === */
-.cheeklist-page {
-    min-height: 100vh;
+/*theme application*/
+body.light .cheeklist-page {
     background: linear-gradient(to bottom, #ffffff 0%, #7fb1ff 30%, #5195fe 60%, #0557d5 100%);
-    font-family: 'Segoe UI', sans-serif;
     color: #111;
-    padding: 2rem;
-    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body.dark .cheeklist-page {
+    background-color: #121212;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+body.dark .recap-card {
+    background-color: #1f1f1f;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 /* === TITRE === */
@@ -14,6 +22,7 @@
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 3rem;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 /* === VOITURE ROTATIVE === */

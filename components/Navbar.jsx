@@ -38,7 +38,7 @@ export default function Navbar() {
                     <div className="profile-popup">
                         <Link href="/profil">Mon profil</Link>
                         <Link href="/documents">Documents</Link>
-                        <Link href="/parametres">Paramètres</Link>
+                        <Link href="/parametre">Paramètres</Link>
                         <Link href="/" className="logout">Se déconnecter</Link>
                     </div>
                 )}

@@ -1,7 +1,5 @@
 /* RapportVehicule.css */
-
-.mes-vehicules {
-    min-height: 100vh;
+body.light .mes-vehicules {
     background: linear-gradient(
             to bottom,
             #ffffff 8%,
@@ -9,10 +7,38 @@
             #5195fe 53%,
             #0557d5 80%
     );
-    font-family: 'Segoe UI', sans-serif;
     color: black;
-    padding: 2rem;
+    font-family: 'Segoe UI', sans-serif;
 }
+
+body.dark .mes-vehicules {
+    background-color: #121212;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+body.dark .card {
+    background-color: #1e1e1e;
+    color: white;
+    border: 1px solid #333;
+}
+
+body.dark .info-text {
+    color: #90c4ff;
+}
+
+body.dark .link {
+    color: #4d9eff;
+}
+
+body.dark table,
+body.dark th,
+body.dark td {
+    background-color: #2b2b2b;
+    color: white;
+    border-color: #444;
+}
+
+
 
 .top-buttons {
     display: flex;

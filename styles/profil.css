@@ -1,7 +1,4 @@
-/* ===== PROFIL PAGE ===== */
-.profil-page {
-    display: flex;
-    min-height: 100vh;
+body.light .profil-page {
     background: linear-gradient(
             to bottom,
             #ffffff 8%,
@@ -9,117 +6,253 @@
             #5195fe 53%,
             #0557d5 80%
     );
+    color: black;
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* ===== SIDEBAR ===== */
-.sidebar {
-    width: 250px;
-    background: white;
-    padding: 2rem 1rem;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+body.dark .profil-page {
+    background-color: #121212;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-.sidebar h2 {
+body.dark .profil-section {
+    background-color: #1f1f1f;
+    color: white;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.profil-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    object-fit: cover;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.photo-button {
+    background-color: black;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.profil-section {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profil-section h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
     margin-bottom: 1rem;
-    color: #1e3a8a;
-    font-size: 1.6rem;
+}
+
+.profil-grid-2col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.full-width {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.profil-grid-2col label,
+.full-width-label {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.profil-grid-2col input,
+.full-width,
+textarea {
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #f4f4f4;
+    font-size: 0.95rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+.delete-button-fixed {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Popup */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.popup {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
     text-align: center;
 }
 
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar li {
-    padding: 0.8rem 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    color: #1e3a8a;
-    font-weight: 500;
-    transition: background 0.3s;
-}
-
-.sidebar li:hover,
-.sidebar li.active {
-    background-color: #e0edff;
-}
-
-/* ===== CONTENT GENERAL ===== */
-.content {
-    flex: 1;
-    padding: 2rem;
-    color: black;
-}
-
-/* Sections de contenu */
-.documents-section,
-.parametres-section,
-.historique-section {
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(6px);
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.documents-section h1,
-.parametres-section h1,
-.historique-section h1 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-/* Liste interne (dans contenu) */
-ul li {
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-    color: black; /* ✅ Texte noir pour tout */
-}
-
-/* ===== BOUTON AJOUTER DOCUMENT ===== */
-.ajouter-btn {
-    background: #0557d5;
-    color: white;
-    border: none;
-    padding: 0.75rem 2rem;
+.popup textarea {
+    width: 100%;
+    height: 100px;
+    margin: 1rem 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 0.75rem;
     font-size: 1rem;
+    resize: none;
+    box-sizing: border-box;
+}
+
+.popup-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.popup .cancel,
+.popup .confirm {
+    flex: 1;
+    padding: 0.75rem;
     font-weight: bold;
-    border-radius: 8px;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
 }
 
-.ajouter-btn:hover {
-    background: #003c9e;
+.popup .cancel {
+    background-color: #ccc;
+    color: #333;
 }
 
-/* ===== RESPONSIVE MOBILE ===== */
+.popup .confirm {
+    background-color: red;
+    color: white;
+}
+.edit-icon {
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    background-color: #f4f4f4;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+    font-weight: bold;
+    color: #0557d5;
+    display: inline-block;
+}
+
+.edit-icon:hover {
+    background-color: #d6e6ff;
+    color: #033fa0;
+}
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.edit-form input,
+.edit-form select {
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #f4f4f4;
+    font-size: 0.95rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
 @media (max-width: 768px) {
-    .profil-page {
+    .profil-header {
         flex-direction: column;
-    }
-
-    .sidebar {
-        width: 100%;
-        flex-direction: row;
-        overflow-x: auto;
-    }
-
-    .sidebar ul {
-        display: flex;
+        align-items: flex-start;
         gap: 1rem;
     }
 
-    .content {
-        padding: 1rem;
+    .profil-grid-2col {
+        display: grid;
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+    }
+
+    .delete-button-fixed {
+        position: relative;
+        width: 100%;
+        margin: 2rem 0 0 0;
+        left: unset;
+        right: unset;
+        bottom: unset;
+    }
+
+    .popup {
+        width: 90%;
+        padding: 1.5rem;
+    }
+
+    .popup-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .edit-icon {
+        font-size: 0.9rem;
+    }
+
+    .avatar {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 }

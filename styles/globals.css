@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*theme application*/
+body.light {
+    background-color: white;
+    color: black;
+}
+
+body.dark {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+body.dark .section {
+    background-color: #2c2c2c;
+    color: white;
+}
+
+body.dark select,
+body.dark input,
+body.dark .switch,
+body.dark .toggle-switch {
+    background-color: #3a3a3a;
+    color: white;
+    border: 1px solid #555;
+}

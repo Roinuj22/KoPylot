@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import Image from "next/image";
 
 export default function HomePage() {
     //  Animation au scroll : fait monter le texte doucement pendant qu'on défile
@@ -59,7 +60,14 @@ export default function HomePage() {
         <div>
             {/* === NAVBAR === */}
             <nav>
-                <div className="left">LOGO</div>
+                <div className="left">  <Image
+                    src="/image/Logo.png"
+                    alt="Logo KoPylot"
+                    width={150}
+                    height={50}
+                    className="logo-image"
+                    priority
+                /> </div>
                 <div className="right">
                     <a href="#">Accueil</a>
                     <a href="/connexion" className="nav-button">👤 Connexion</a>

@@ -14,7 +14,7 @@ export default function InscriptionPage() {
             prenom: form.prenom.value,
             email: form.email.value,
             password: form.motdepasse.value,
-            adresse: form.adresse.value,
+            /*adresse: form.adresse.value,*/
             ville: form.ville.value,
             pays: form.pays.value,
         };
@@ -67,3 +67,6 @@ export default function InscriptionPage() {
         </div>
     );
 }
+
+// bar de navigation
+InscriptionPage.noNavbar = true;

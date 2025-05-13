@@ -1,6 +1,5 @@
-/* ===== PAGE CONNECTÉE ===== */
-.page-connectee {
-    min-height: 100vh;
+/* ===== PAGE CONNECTÉE & theme application ===== */
+body.light .page-connectee {
     background: linear-gradient(
             to bottom,
             #ffffff 8%,
@@ -8,19 +7,34 @@
             #5195fe 53%,
             #0557d5 80%
     );
+    color: black;
     font-family: 'Segoe UI', sans-serif;
+}
+
+body.dark .page-connectee {
+    background-color: #121212;
     color: white;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 /* ===== NAVBAR ===== */
+body.light .navbar-connectee {
+    background: white;
+    color: black;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .navbar-connectee {
+    background: #1e1e1e;
+    color: white;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+}
+
 .navbar-connectee {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background: white;
-    color: black;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     margin: 1.5rem auto 2rem;
     max-width: 1200px;
@@ -36,13 +50,24 @@
 
 .navbar-connectee .nav-left a {
     text-decoration: none;
-    color: black;
     font-weight: 500;
     font-size: 1rem;
 }
 
-.navbar-connectee .nav-left a:hover {
+body.light .navbar-connectee .nav-left a {
+    color: black;
+}
+
+body.dark .navbar-connectee .nav-left a {
+    color: white;
+}
+
+body.light .navbar-connectee .nav-left a:hover {
     color: #003c9e;
+}
+
+body.dark .navbar-connectee .nav-left a:hover {
+    color: #6ea8ff;
 }
 
 .navbar-connectee .logo {
@@ -58,7 +83,6 @@
 
 /* ======== Responsive correction ======== */
 @media (max-width: 768px) {
-    /* Navbar en colonne */
     .navbar-connectee {
         flex-direction: column;
         align-items: center;
@@ -82,8 +106,19 @@
     }
 }
 
-
 /* ===== DASHBOARD SECTIONS ===== */
+body.light .section-dashboard {
+    background: white;
+    color: black;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+body.dark .section-dashboard {
+    background: #1e1e1e;
+    color: white;
+    box-shadow: 0 8px 18px rgba(255, 255, 255, 0.08);
+}
+
 .dashboard-contenu {
     max-width: 1100px;
     margin: 0 auto;
@@ -94,11 +129,8 @@
 }
 
 .section-dashboard {
-    background: white;
-    color: black;
     border-radius: 1rem;
     padding: 2rem;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease;
     text-align: center;
 }
@@ -114,27 +146,26 @@
     border-radius: 0.75rem;
 }
 
-/* ===== FEATURES CARDS (REPRISE DE LA PAGE D’ACCUEIL) ===== */
-.features-stacked {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    padding: 2rem;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
+/* ===== FEATURES CARDS ===== */
 .feature-row {
     display: flex;
     align-items: center;
     gap: 2rem;
     flex-wrap: wrap;
-    background: transparent;
     border-radius: 1rem;
-    color: white;
     transition: transform 0.3s ease;
     min-height: 420px;
     padding: 1.5rem 2rem;
+}
+
+body.light .feature-row {
+    background: #e0f0ff;
+    color: black;
+}
+
+body.dark .feature-row {
+    background: #1e1e1e;
+    color: white;
 }
 
 .feature-row:hover {
@@ -173,16 +204,25 @@
     flex-direction: row-reverse;
 }
 
-/* ===== CONTACT (REPRISE) ===== */
+/* ===== CONTACT ===== */
 .contact-section {
     padding: 3rem 2rem;
+    text-align: center;
+}
+
+body.light .contact-section {
+    color: black;
+    background: #f0f4ff;
+}
+
+body.dark .contact-section {
     color: white;
+    background: #121212;
 }
 
 .contact-section h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
-    text-align: center;
 }
 
 .contact-content {
@@ -197,15 +237,24 @@
 }
 
 .contact-form {
-    background: white;
-    color: black;
     padding: 2rem;
     border-radius: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 380px;
     display: grid;
     gap: 1rem;
+}
+
+body.light .contact-form {
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .contact-form {
+    background: #1e1e1e;
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
 }
 
 .contact-form input,
@@ -214,6 +263,13 @@
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 1rem;
+}
+
+body.dark .contact-form input,
+body.dark .contact-form textarea {
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    color: white;
 }
 
 .contact-form button {
@@ -246,6 +302,7 @@
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
     .feature-row,
     .row-right {
@@ -275,6 +332,8 @@
         max-height: 250px;
     }
 }
+
+/* ===== ANIMATION ===== */
 .car-animation {
     width: 850px;
     max-width: 100%;

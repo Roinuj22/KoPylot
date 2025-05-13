@@ -1,0 +1,139 @@
+.parametres-page {
+    min-height: 100vh;
+    padding: 2rem;
+    background: linear-gradient(to bottom, #ffffff 8%, #7fb1ff 26%, #5195fe 53%, #0557d5 80%);
+    font-family: 'Segoe UI', sans-serif;
+    color: black;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.switch-list label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.switch-list input[type="checkbox"] {
+    display: none;
+}
+
+.switch {
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.switch::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease;
+}
+
+input[type="checkbox"]:checked + .switch {
+    background-color: #0557d5;
+}
+
+input[type="checkbox"]:checked + .switch::before {
+    transform: translateX(20px);
+}
+
+select {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 300px;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.toggle-switch {
+    width: 50px;
+    height: 26px;
+    background-color: #ccc;
+    border-radius: 50px;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.circle {
+    width: 22px;
+    height: 22px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease;
+}
+
+.circle.dark {
+    transform: translateX(24px);
+}
+
+span.active {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 1rem;
+    }
+
+    .theme-toggle {
+        gap: 0.5rem;
+    }
+
+    .toggle-switch {
+        width: 40px;
+        height: 22px;
+    }
+
+    .circle {
+        width: 18px;
+        height: 18px;
+    }
+}
+

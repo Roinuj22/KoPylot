@@ -1,6 +1,5 @@
 /* ===== GLOBAL ===== */
-.mes-vehicules {
-    min-height: 100vh;
+body.light .mes-vehicules {
     background: linear-gradient(
             to bottom,
             #ffffff 8%,
@@ -8,9 +7,23 @@
             #5195fe 53%,
             #0557d5 80%
     );
-    font-family: 'Segoe UI', sans-serif;
     color: black;
-    padding: 2rem;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body.dark .mes-vehicules {
+    background-color: #121212;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+body.dark .ajouter-texte {
+    color: white;
+}
+
+body.dark .carte-vehicule {
+    background-color: #1f1f1f;
+    color: white;
+    box-shadow: 0 8px 18px rgba(255, 255, 255, 0.05);
 }
 
 
@@ -278,7 +291,7 @@
     }
 }
 
-/* ===== SIDEBAR PROFIL (OPTIONNEL) ===== */
+/* ===== SIDEBAR PROFIL ===== */
 .sidebar-profil {
     position: fixed;
     top: 0;
@@ -324,4 +337,141 @@
     cursor: pointer;
     align-self: flex-end;
     color: #1e3a8a;
+}
+
+
+/* ===== GLOBAL ===== */
+body.light .mes-vehicules {
+    background: linear-gradient(
+            to bottom,
+            #ffffff 8%,
+            #7fb1ff 26%,
+            #5195fe 53%,
+            #0557d5 80%
+    );
+    color: black;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body.dark .mes-vehicules {
+    background-color: #121212;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body.dark .ajouter-texte {
+    color: white;
+}
+
+body.dark .carte-vehicule {
+    background-color: #1f1f1f;
+    color: white;
+    box-shadow: 0 8px 18px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .formulaire-vehicule {
+    background-color: #1f2937;
+    color: white;
+}
+
+body.dark .formulaire-vehicule input,
+body.dark .formulaire-vehicule select {
+    background-color: #374151;
+    border: 1px solid #4b5563;
+    color: white;
+}
+
+body.dark .formulaire-vehicule button {
+    background-color: #3b82f6;
+    color: white;
+}
+
+body.dark .message-pro {
+    background: #2f1e1e;
+    color: #f87171;
+}
+
+body.dark .dropdown {
+    background-color: #1e293b;
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+body.dark .dropdown li {
+    color: #93c5fd;
+}
+
+body.dark .dropdown li:hover {
+    background-color: #374151;
+}
+
+body.dark .sidebar-profil {
+    background-color: #1f1f1f;
+    color: white;
+}
+
+body.dark .sidebar-profil li,
+body.dark .sidebar-profil a,
+body.dark .close-btn {
+    color: #93c5fd;
+}
+
+/* ===== ACCESSIBILITÉ LIENS & ACTIONS ===== */
+.sidebar-profil a:hover,
+.sidebar-profil li:hover,
+.actions button:hover,
+.dropdown li:hover,
+.ajouter-btn:hover,
+.formulaire-vehicule button:hover,
+.rappel-actions span:hover {
+    color: #3b82f6;
+}
+
+/* ===== POPUPS GLOBAUX (AU CAS OÙ) ===== */
+body.dark .popup-content {
+    background-color: #1f2937;
+    color: white;
+}
+
+body.light .popup-content {
+    background-color: white;
+    color: black;
+}
+
+body.dark .popup-content input,
+body.dark .popup-content select {
+    background-color: #374151;
+    color: white;
+    border: 1px solid #4b5563;
+}
+
+body.light .popup-content input,
+body.light .popup-content select {
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+}
+
+.popup-content button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.popup-content button:hover {
+    background-color: #1d4ed8;
+}
+
+/* ===== MAINTIEN DES COULEURS ORIGINALES POUR LES ÉTATS ===== */
+.infos .etat.hors-service {
+    background: #ffeaea;
+    color: #d32f2f;
+}
+
+.infos .etat.vendu {
+    background: #e1fbe1;
+    color: #1a7f1a;
 }
