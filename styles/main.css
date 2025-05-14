@@ -430,26 +430,25 @@ nav a:hover {
 
 /* ===== CONTACT ===== */
 .contact-section {
-    padding: 3rem 2rem;
+    padding: 3rem 1rem;
     color: white;
+    overflow-x: hidden;
 }
 
 .contact-section h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
-    text-align: left;
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
 }
 
 .contact-content {
     display: flex;
-    height: 350px;
-    max-width: 1100px;
-    margin: 0 auto;
-    gap: 2rem;
     flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .contact-form {
@@ -458,9 +457,11 @@ nav a:hover {
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 380px;
+    width: 100%;
+    max-width: 360px;
     display: grid;
     gap: 1rem;
+    box-sizing: border-box;
 }
 
 .contact-form input,
@@ -469,6 +470,8 @@ nav a:hover {
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .contact-form button {
@@ -478,6 +481,7 @@ nav a:hover {
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    width: 100%;
 }
 
 .contact-form button:hover {
@@ -486,54 +490,42 @@ nav a:hover {
 
 .contact-image {
     flex: 1;
-    height: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 }
 
 .contact-image img {
-    width: 80%;
+    width: 100%;
+    max-width: 360px;
     height: auto;
     object-fit: cover;
     border-radius: 1rem;
-    max-height: 350px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
+
+/* Mobile */
 @media (max-width: 768px) {
     .contact-content {
         flex-direction: column;
         align-items: center;
-        height: auto;
         padding: 0 1rem;
-        width: 100%;
-        box-sizing: border-box;
     }
 
-    .contact-form {
+    .contact-form,
+    .contact-image img {
         width: 100%;
-        max-width: 380px;
-    }
-
-    .contact-section h2 {
-        text-align: center;
+        max-width: 320px;
     }
 
     .contact-image {
-        justify-content: center;
-        height: auto;
         margin-top: 1rem;
-    }
-
-    .contact-image img {
-        width: 100%;
-        height: auto;
-        max-height: 250px;
     }
 }
 
 
 
+/*Scroll*/
 .scroll-reveal {
     opacity: 0;
     transform: translateY(100px);
