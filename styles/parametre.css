@@ -1,3 +1,228 @@
+/* LOGIN THEME CLAIR/SOMBRE*/
+body.dark .login-left {
+    background: linear-gradient(to bottom right, #1e3a8a, #111827);
+    color: white;
+}
+
+body.dark .kop-name {
+    color: #93c5fd;
+}
+
+body.dark .login-form input {
+    background-color: #374151;
+    color: white;
+    border: 1px solid #4b5563;
+}
+
+body.dark .login-form button {
+    background-color: #2563eb;
+    color: white;
+}
+
+body.dark .login-form button:hover {
+    background-color: #1d4ed8;
+}
+
+body.dark .login-right {
+    background: #1f2937;
+    color: white;
+}
+
+body.dark .signup-box-right h2,
+body.dark .signup-box-right p,
+body.dark .kop-name-dark {
+    color: #93c5fd;
+}
+
+body.dark .signup-link {
+    background: #3b82f6;
+    color: white;
+}
+
+body.dark .signup-link:hover {
+    background: #2563eb;
+}
+
+body.dark .back-link {
+    background: #2563eb;
+    color: white;
+}
+
+body.dark .back-link:hover {
+    background: #1d4ed8;
+}
+
+body.dark .message-box.success {
+    background-color: #064e3b;
+    color: #d1fae5;
+}
+
+body.dark .message-box.error {
+    background-color: #7f1d1d;
+    color: #fee2e2;
+}
+
+/*  PAGE SIGNUP THEME CLAIR/SOMBRE  */
+body.dark .signup-page {
+    background: linear-gradient(to bottom, #0f172a, #1e3a8a);
+    color: white;
+}
+
+body.dark .signup-box {
+    background-color: #1f2937;
+    color: white;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+}
+
+body.dark .signup-box h1 {
+    color: #93c5fd;
+}
+
+body.dark .signup-form input,
+body.dark .signup-form select {
+    background-color: #374151;
+    border: 1px solid #4b5563;
+    color: white;
+}
+
+body.dark .signup-form button {
+    background-color: #3b82f6;
+    color: white;
+}
+
+body.dark .signup-form button:hover {
+    background-color: #2563eb;
+}
+
+body.dark .message-box.success {
+    background-color: #064e3b;
+    color: #d1fae5;
+}
+
+body.dark .message-box.error {
+    background-color: #7f1d1d;
+    color: #fee2e2;
+}
+
+/* FOOTER THEME CLAIR/SOMBRE */
+body.dark .footer {
+    background-color: #1f2937;
+    border-top: 1px solid #334155;
+    color: white;
+}
+
+body.dark .footer-top a,
+body.dark .footer-links a,
+body.dark .footer-socials a {
+    color: #e5e7eb;
+}
+
+body.dark .footer-top a:hover,
+body.dark .footer-links a:hover {
+    color: #93c5fd;
+}
+
+body.dark .footer-divider {
+    border-top: 1px solid #475569;
+}
+
+body.dark .footer-socials a {
+    border-color: #e5e7eb;
+}
+
+body.dark .footer-socials a:hover {
+    background-color: #e5e7eb;
+    color: #1f2937;
+}
+
+/* LANDING PAGE THEME CLAIR/SOMBRE */
+body.dark {
+    background: #0f172a;
+    color: white;
+}
+
+body.dark .white-bg,
+body.dark .hero,
+body.dark nav {
+    background-color: #1f2937;
+    color: white;
+}
+
+body.dark nav a,
+body.dark .nav-button {
+    color: white;
+}
+
+body.dark nav a:hover {
+    color: #60a5fa;
+}
+
+body.dark .gradient-bg {
+    background: linear-gradient(to bottom, #0f172a, #1e3a8a);
+    color: white;
+}
+
+body.dark .feature-row {
+    color: white;
+}
+
+body.dark .avis-card {
+    background-color: #1f2937;
+    color: white;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+body.dark .contact-form {
+    background-color: #1f2937;
+    color: white;
+}
+
+body.dark .contact-form input,
+body.dark .contact-form textarea {
+    background-color: #374151;
+    border: 1px solid #4b5563;
+    color: white;
+}
+
+body.dark .contact-form button {
+    background-color: #3b82f6;
+}
+
+body.dark .contact-form button:hover {
+    background-color: #2563eb;
+}
+
+/*PARAMETRE PAGE THEME CLAIR/SOMBRE*/
+body.dark .parametres-page {
+    background: linear-gradient(to bottom, #0f172a, #1e3a8a);
+    color: white;
+}
+
+body.dark .section {
+    background-color: #1f2937;
+    color: white;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .switch {
+    background-color: #4b5563;
+}
+
+body.dark .toggle-switch {
+    background-color: #4b5563;
+}
+
+body.dark .circle {
+    background-color: white;
+}
+
+body.dark select {
+    background-color: #374151;
+    border: 1px solid #4b5563;
+    color: white;
+}
+
+
 .parametres-page {
     min-height: 100vh;
     padding: 2rem;

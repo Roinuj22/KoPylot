@@ -1,4 +1,49 @@
-/* ===== NAVBAR ===== */
+/* NAVBAR THEME CLAIR/SOMBRE */
+body.dark .navbar {
+    background-color: #1f2937;
+    color: white;
+    border-bottom: 1px solid #334155;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.08);
+}
+
+body.dark .nav-center a {
+    color: #e5e7eb;
+}
+
+body.dark .nav-center a:hover {
+    color: #60a5fa;
+}
+
+body.dark .profile-button {
+    color: white;
+}
+
+body.dark .profile-popup {
+    background-color: #1f2937;
+    border: 1px solid #4b5563;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+body.dark .profile-popup a {
+    color: #e5e7eb;
+    border-bottom: 1px solid #374151;
+}
+
+body.dark .profile-popup a:hover {
+    background-color: #334155;
+}
+
+body.dark .logout {
+    background-color: #3b82f6;
+    color: white !important;
+}
+
+body.dark .logout:hover {
+    background-color: #2563eb;
+}
+
+
+/* NAVBAR*/
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -45,7 +90,7 @@
 }
 
 .nav-center a:hover {
-    color: #555; /* subtil changement */
+    color: #555;
 }
 
 /* Profil à droite */

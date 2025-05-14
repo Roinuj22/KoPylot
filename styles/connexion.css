@@ -1,4 +1,72 @@
+/* ===== LOGIN THEME CLAIR/SOMBRE ===== */
+body.dark .login-left {
+    background: linear-gradient(to bottom right, #1e3a8a, #111827);
+    color: white;
+}
 
+body.dark .kop-name {
+    color: #93c5fd;
+}
+
+body.dark .login-form input {
+    background-color: #374151;
+    color: white;
+    border: 1px solid #4b5563;
+}
+
+body.dark .login-form button {
+    background-color: #2563eb;
+    color: white;
+}
+
+body.dark .login-form button:hover {
+    background-color: #1d4ed8;
+}
+
+body.dark .login-right {
+    background: #1f2937;
+    color: white;
+}
+
+body.dark .signup-box-right h2,
+body.dark .signup-box-right p,
+body.dark .kop-name-dark {
+    color: #93c5fd;
+}
+
+body.dark .signup-link {
+    background: #3b82f6;
+    color: white;
+}
+
+body.dark .signup-link:hover {
+    background: #2563eb;
+}
+
+body.dark .back-link {
+    background: #2563eb;
+    color: white;
+}
+
+body.dark .back-link:hover {
+    background: #1d4ed8;
+}
+
+body.dark .message-box.success {
+    background-color: #064e3b;
+    color: #d1fae5;
+}
+
+body.dark .message-box.error {
+    background-color: #7f1d1d;
+    color: #fee2e2;
+}
+
+.login-container {
+    display: flex;
+    height: 100vh;
+    font-family: sans-serif;
+}
 
 /* Partie gauche - Connexion */
 .login-left {

@@ -1,4 +1,4 @@
-/* ===== PAGE CONNECTÉE & theme application ===== */
+/* PAGE CONNECTÉE */
 body.light .page-connectee {
     background: linear-gradient(
             to bottom,
@@ -17,17 +17,18 @@ body.dark .page-connectee {
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* ===== NAVBAR ===== */
-body.light .navbar-connectee {
-    background: white;
-    color: black;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.page-connectee {
+    min-height: 100vh;
 }
 
+/* NAVBAR*/
 body.dark .navbar-connectee {
-    background: #1e1e1e;
+    background-color: #1f2937;
     color: white;
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .navbar-connectee .nav-left a {
+    color: white;
 }
 
 .navbar-connectee {
@@ -35,6 +36,9 @@ body.dark .navbar-connectee {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    background: white;
+    color: black;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     margin: 1.5rem auto 2rem;
     max-width: 1200px;
@@ -50,24 +54,13 @@ body.dark .navbar-connectee {
 
 .navbar-connectee .nav-left a {
     text-decoration: none;
+    color: black;
     font-weight: 500;
     font-size: 1rem;
 }
 
-body.light .navbar-connectee .nav-left a {
-    color: black;
-}
-
-body.dark .navbar-connectee .nav-left a {
-    color: white;
-}
-
-body.light .navbar-connectee .nav-left a:hover {
-    color: #003c9e;
-}
-
-body.dark .navbar-connectee .nav-left a:hover {
-    color: #6ea8ff;
+.navbar-connectee .nav-left a:hover {
+    color: #3b82f6;
 }
 
 .navbar-connectee .logo {
@@ -81,7 +74,7 @@ body.dark .navbar-connectee .nav-left a:hover {
     font-size: 1.3rem;
 }
 
-/* ======== Responsive correction ======== */
+/* Responsive correction*/
 @media (max-width: 768px) {
     .navbar-connectee {
         flex-direction: column;
@@ -106,17 +99,10 @@ body.dark .navbar-connectee .nav-left a:hover {
     }
 }
 
-/* ===== DASHBOARD SECTIONS ===== */
-body.light .section-dashboard {
-    background: white;
-    color: black;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-}
-
+/* DASHBOARD SECTIONS*/
 body.dark .section-dashboard {
-    background: #1e1e1e;
+    background-color: #1f2937;
     color: white;
-    box-shadow: 0 8px 18px rgba(255, 255, 255, 0.08);
 }
 
 .dashboard-contenu {
@@ -129,8 +115,11 @@ body.dark .section-dashboard {
 }
 
 .section-dashboard {
+    background: white;
+    color: black;
     border-radius: 1rem;
     padding: 2rem;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease;
     text-align: center;
 }
@@ -146,26 +135,31 @@ body.dark .section-dashboard {
     border-radius: 0.75rem;
 }
 
-/* ===== FEATURES CARDS ===== */
+/* FEATURES CARDS*/
+body.dark .feature-row {
+    color: white;
+}
+
+.features-stacked {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
 .feature-row {
     display: flex;
     align-items: center;
     gap: 2rem;
     flex-wrap: wrap;
+    background: transparent;
     border-radius: 1rem;
+    color: white;
     transition: transform 0.3s ease;
     min-height: 420px;
     padding: 1.5rem 2rem;
-}
-
-body.light .feature-row {
-    background: #e0f0ff;
-    color: black;
-}
-
-body.dark .feature-row {
-    background: #1e1e1e;
-    color: white;
 }
 
 .feature-row:hover {
@@ -204,25 +198,32 @@ body.dark .feature-row {
     flex-direction: row-reverse;
 }
 
-/* ===== CONTACT ===== */
-.contact-section {
-    padding: 3rem 2rem;
-    text-align: center;
-}
-
-body.light .contact-section {
-    color: black;
-    background: #f0f4ff;
-}
-
+/* CONTACT*/
 body.dark .contact-section {
     color: white;
-    background: #121212;
+}
+
+body.dark .contact-form {
+    background-color: #1f2937;
+    color: white;
+}
+
+body.dark .contact-form input,
+body.dark .contact-form textarea {
+    background-color: #374151;
+    color: white;
+    border: 1px solid #4b5563;
+}
+
+.contact-section {
+    padding: 3rem 2rem;
+    color: white;
 }
 
 .contact-section h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
+    text-align: center;
 }
 
 .contact-content {
@@ -237,24 +238,15 @@ body.dark .contact-section {
 }
 
 .contact-form {
+    background: white;
+    color: black;
     padding: 2rem;
     border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 380px;
     display: grid;
     gap: 1rem;
-}
-
-body.light .contact-form {
-    background: white;
-    color: black;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-body.dark .contact-form {
-    background: #1e1e1e;
-    color: white;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
 }
 
 .contact-form input,
@@ -263,13 +255,6 @@ body.dark .contact-form {
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 1rem;
-}
-
-body.dark .contact-form input,
-body.dark .contact-form textarea {
-    background-color: #2c2c2c;
-    border: 1px solid #444;
-    color: white;
 }
 
 .contact-form button {
@@ -302,7 +287,6 @@ body.dark .contact-form textarea {
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
-/* ===== Responsive ===== */
 @media (max-width: 768px) {
     .feature-row,
     .row-right {
@@ -333,7 +317,7 @@ body.dark .contact-form textarea {
     }
 }
 
-/* ===== ANIMATION ===== */
+/* ANIMATION*/
 .car-animation {
     width: 850px;
     max-width: 100%;
