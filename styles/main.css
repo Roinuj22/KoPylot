@@ -500,12 +500,19 @@ nav a:hover {
     max-height: 350px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
-
 @media (max-width: 768px) {
     .contact-content {
         flex-direction: column;
         align-items: center;
         height: auto;
+        padding: 0 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-form {
+        width: 100%;
+        max-width: 380px;
     }
 
     .contact-section h2 {
@@ -524,6 +531,8 @@ nav a:hover {
         max-height: 250px;
     }
 }
+
+
 
 .scroll-reveal {
     opacity: 0;
