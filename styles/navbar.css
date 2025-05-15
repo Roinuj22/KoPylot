@@ -164,6 +164,9 @@ body.dark .logout:hover {
     .navbar {
         flex-direction: column;
         padding: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
     }
 
     .nav-center {
@@ -171,10 +174,16 @@ body.dark .logout:hover {
         justify-content: center;
         gap: 1rem;
         margin-top: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
     }
 
     .nav-right {
         justify-content: center;
         margin-top: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
     }
 }

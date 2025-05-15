@@ -13,6 +13,8 @@ import '../styles/rapportVehicule.css';
 import '../styles/navbar.css';
 import '../styles/footer.css';
 import '../styles/parametre.css';
+import '../styles/documents.css';
+import '../styles/depenses.css';
 
 
 

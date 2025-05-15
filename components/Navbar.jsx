@@ -26,7 +26,7 @@ export default function Navbar() {
                 <Link href="/MesVehicules">Mes véhicules</Link>
                 <Link href="/rappels">Rappels</Link>
                 <Link href="/checklist">Checklist</Link>
-                <Link href="#">Suivi des dépenses</Link>
+                <Link href="/Depenses">Suivi des dépenses</Link>
                 <Link href="/rapportVehicule">Rapport véhicule</Link>
             </div>
 
@@ -37,7 +37,7 @@ export default function Navbar() {
                 {isMenuOpen && (
                     <div className="profile-popup">
                         <Link href="/profil">Mon profil</Link>
-                        <Link href="/documents">Documents</Link>
+                        <Link href="/document">Documents</Link>
                         <Link href="/parametre">Paramètres</Link>
                         <Link href="/" className="logout">Se déconnecter</Link>
                     </div>
