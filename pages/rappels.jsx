@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Pencil, Wrench } from 'lucide-react';
+import { Pencil, Wrench, Settings, CheckSquare} from 'lucide-react';
 
 
 export default function RappelsPage() {
@@ -103,7 +103,7 @@ export default function RappelsPage() {
             setRappelsActifs(updated);
             localStorage.setItem("rappelsActifs", JSON.stringify(updated));
 
-            setMessageSucces("✏️ Date modifiée avec succès !");
+            setMessageSucces(" Date modifiée avec succès !");
         }
         setTimeout(() => setMessageSucces(null), 3000);
         setPopupData(null);
@@ -121,7 +121,7 @@ export default function RappelsPage() {
                         <div className="rappels-header">
                             <h1>
                                 Rappels d'entretien
-                                <span className="icon clickable" onClick={() => handleClick("parametres")}>⚙️</span>
+                                <span className="icon clickable" onClick={() => handleClick("parametres")}><Settings size={40} color="black" /></span>
                             </h1>
                             <div className="rappels-links">
                                 <button onClick={() => handleClick("selection")}>Sélectionner Rappels</button>
@@ -131,7 +131,7 @@ export default function RappelsPage() {
                     </nav>
 
                     <div className="kilometrage-section">
-                        <p className="clickable" onClick={() => handleClick("kilometrage")}>✅ <span className="text-blue underline">Estimer votre kilométrage</span></p>
+                        <p className="clickable" onClick={() => handleClick("kilometrage")}><CheckSquare size={25} color="green"/> <span className="text-blue underline">Estimer votre kilométrage</span></p>
                         <p>Votre kilométrage estimé est de {kilometrageEstime ? `${kilometrageEstime} km` : ".... km"} </p>
                     </div>
 

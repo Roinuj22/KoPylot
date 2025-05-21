@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import AccueilApresConnexion from "./accueilApresConnexion";
+import { ArrowLeft } from 'lucide-react';
 
 export default function ConnexionPage() {
     const router = useRouter();
@@ -51,7 +51,7 @@ export default function ConnexionPage() {
         <div style={{ position: "relative" }}>
             {/* Retour Accueil */}
             <div className="back-home">
-                <a href="/" className="back-link">← Retour à l'accueil</a>
+                <a href="/" className="back-link"> <ArrowLeft/> Retour à l'accueil</a>
             </div>
 
             {/* Container global */}

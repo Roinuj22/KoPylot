@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 export default function AccueilApresConnexion() {
     const [prenom, setPrenom] = useState("Utilisateur");
     const [isClient, setIsClient] = useState(false); //  Pour différencier client/serveur
+    const [derniereDepense, setDerniereDepense] = useState(null);
+
 
     useEffect(() => {
         setIsClient(true); //  Quand la page est bien montée côté client
@@ -36,6 +38,12 @@ export default function AccueilApresConnexion() {
                 }
             });
         };
+
+        const depensesData = JSON.parse(localStorage.getItem("depenses")) || [];
+        if (depensesData.length > 0) {
+            const sorted = [...depensesData].sort((a, b) => new Date(b.date) - new Date(a.date));
+            setDerniereDepense(sorted[0]);
+        }
 
         window.addEventListener("scroll", handleScroll);
         handleScroll();
@@ -97,13 +105,43 @@ export default function AccueilApresConnexion() {
 
 
             {/* === DASHBOARD === */}
-            <div className="dashboard-contenu">
-                <section className="section-dashboard scroll-fade-up" style={{ marginTop: '2rem', fontSize: '2.8rem' }}>
-                    <h1>Bienvenue {prenom} 👋</h1>
-                    <img src="/image/voiture.png" alt="voiture animée" className="car-animation" />
-                    <h2 style={{ marginTop: '2rem', fontSize: '1.8rem' }}>Tableau de bord</h2>
-                    <img src="/image/tableau-de-bord.jpg" alt="tableau de bord" className="dashboard-img" />
-                </section>
+             <div className="dashboard-contenu">
+                 <section className="section-dashboard scroll-fade-up" style={{ marginTop: '2rem', fontSize: '2.8rem' }}>
+                     <h1>Bienvenue {prenom}</h1>
+                     <img src="/image/Voiture.png" alt="voiture animée" className="car-animation" />
+                     <h2 style={{ marginTop: '2rem', fontSize: '1.8rem' }}>Tableau de bord</h2>
+
+                     <div className="carte-scrollable">
+                         <div className="scroll-content">
+                             <div className="carte-item urgent">
+                                 <h3>Rappel manqué</h3>
+                                 <p>Vidange huile  10/02/2025</p>
+                             </div>
+                             <div className="carte-item">
+                                 <h3>Prochain rappel</h3>
+                                 <p>Changement des plaquettes de freins</p>
+                             </div>
+                             <div className="carte-item">
+                                 <h3>Dernière dépense</h3>
+                                 {derniereDepense ? (
+                                     <p>{derniereDepense.titre} : {parseFloat(derniereDepense.montant).toFixed(2)} € le {derniereDepense.date}</p>
+                                 ) : (
+                                     <p>Aucune dépense enregistrée</p>
+                                 )}
+                             </div>
+                             <div className="carte-item">
+                                 <h3>Dernière checklist</h3>
+                                 <p>Éclairage et signalisation 02/04/2025</p>
+                             </div>
+                             <div className="carte-item">
+                                 <h3>Dernier rapport</h3>
+                                 <p>Rapport créé le 12/12/2025.</p>
+                             </div>
+
+                         </div>
+                     </div>
+                 </section>
+
 
                 {/* === FEATURES === */}
                 <section className="features-stacked">

@@ -16,6 +16,8 @@ import '../styles/parametre.css';
 import '../styles/documents.css';
 import '../styles/depenses.css';
 
+import '../styles/PlanEntretien.css';
+
 
 
 

@@ -12,6 +12,24 @@ export default function DepensePage() {
         date: new Date().toISOString().split("T")[0],
     });
 
+    const [selectionMode, setSelectionMode] = useState(false);
+    const [selectedIds, setSelectedIds] = useState([]);
+
+    const toggleSelect = (id) => {
+        setSelectedIds(prev =>
+            prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
+        );
+    };
+
+    const handleDeleteSelected = () => {
+        const updated = depenses.filter((d) => !selectedIds.includes(d.id));
+        localStorage.setItem("depenses", JSON.stringify(updated));
+        setDepenses(updated);
+        setSelectedIds([]);
+        setSelectionMode(false);
+    };
+
+
     const categories = [
         "Carburant/Recharge électrique",
         "Entretiens et Réparations",
@@ -89,6 +107,30 @@ export default function DepensePage() {
                 <div className="card" style={{ flex: 1, minWidth: 250 }}>
                     <p>Dépenses totales</p>
                     <h2>{total.toLocaleString("fr-FR", { style: "currency", currency: "EUR" })}</h2>
+                    <button onClick={() => setSelectionMode(!selectionMode)} className="link">
+                        {selectionMode ? "Annuler la sélection" : "Gérer les dépenses"}
+                    </button>
+
+                    {selectionMode && (
+                        <>
+                            <button onClick={handleDeleteSelected} className="delete-button" disabled={selectedIds.length === 0}>
+                                Supprimer ({selectedIds.length})
+                            </button>
+                            <div className="item-list" style={{ marginTop: '1rem' }}>
+                                {depenses.map((d) => (
+                                    <div key={d.id} className="item">
+                                        <input
+                                            type="checkbox"
+                                            checked={selectedIds.includes(d.id)}
+                                            onChange={() => toggleSelect(d.id)}
+                                            style={{ marginRight: '0.5rem' }}
+                                        />
+                                        <span>{d.titre} — {parseFloat(d.montant).toFixed(2)} €</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </>
+                    )}
                 </div>
                 <div className="card" style={{ flex: 1, minWidth: 250 }}>
                     <p>Dépenses moyennes <i>(par mois)</i></p>
@@ -98,7 +140,7 @@ export default function DepensePage() {
 
             <div className="chart-section" style={{ margin: '2rem 0' }}>
                 <div className="card" style={{ padding: '1rem' }}>
-                    <h3 style={{ textAlign: 'center' }}>Dépenses par catégories</h3>
+                    <h2 style={{ textAlign: 'center' }}>Dépenses par catégories</h2>
                     <div style={{ width: '100%', height: 350 }}>
                         <ResponsiveContainer>
                             <PieChart>
@@ -126,15 +168,15 @@ export default function DepensePage() {
             </div>
 
             <div className="recent-section">
-                <h3>Dépenses récentes</h3>
+
                 <div className="card list" style={{ padding: '1rem' }}>
+                    <h2 style={{ textAlign: 'center' }}>Dépenses récentes</h2>
                     {depenses.map((d) => (
                         <div key={d.id} className="item">
                             <span>{d.titre}</span>
                             <span>{d.categorie}</span>
                             <span>{parseFloat(d.montant).toFixed(2)} €</span>
                             <span>{d.date}</span>
-                            <button onClick={() => handleDelete(d.id)} className="delete-button">Supprimer</button>
                         </div>
                     ))}
                 </div>

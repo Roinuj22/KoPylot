@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { User } from "lucide-react";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,11 +29,12 @@ export default function Navbar() {
                 <Link href="/checklist">Checklist</Link>
                 <Link href="/Depenses">Suivi des dépenses</Link>
                 <Link href="/rapportVehicule">Rapport véhicule</Link>
+                <Link href="/PlanEntretien">Plan Entretien</Link>
             </div>
 
             <div className="nav-right">
                 <button className="profile-button" onClick={toggleMenu}>
-                    👤
+                    <User size={45} color="black" />
                 </button>
                 {isMenuOpen && (
                     <div className="profile-popup">

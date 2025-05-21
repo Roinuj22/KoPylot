@@ -287,6 +287,65 @@ body.dark .contact-form textarea {
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
+/*Tableau de bords */
+.carte-scrollable {
+    width: 100%;
+    max-width: 1100px;
+    height: 200px;
+    overflow-y: scroll;
+    border-radius: 1.5rem;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+    margin: 2rem auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.scroll-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.carte-item {
+    scroll-snap-align: start;
+    min-height: 300px;
+    padding: 3rem 2rem;
+    font-size: 1.8rem;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.carte-item h3 {
+    margin: 0 0 1rem;
+    font-size: 2rem;
+}
+
+.carte-item p {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #555;
+}
+
+.carte-item:hover {
+    background: #f0f0f0;
+}
+
+.urgent {
+    background-color: #ff4d4f !important;
+    color: white;
+}
+
+.urgent:hover {
+    background-color: #ff4d4f !important;
+}
+
+
+
 @media (max-width: 768px) {
     .feature-row,
     .row-right {

@@ -24,7 +24,7 @@ const CarDisplay = () => {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                 >
-                    <img src="/image/give.png" alt="Voiture" className="rotating-car" />
+                    <img src="/image/Voiture.png" alt="Voiture" className="rotating-car" />
 
                     {/* Hotspots */}
                     <button className="hotspot" style={{ top: "28%", left: "17%" }} onClick={() => { setPopupType('eclairage'); setIsPopupOpen(true); }}>+</button>

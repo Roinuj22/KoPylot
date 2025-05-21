@@ -204,6 +204,52 @@ body.dark .item {
 .delete-button:hover {
     background-color: #e63939;
 }
+.link {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    text-decoration: underline;
+    font-size: 0.9rem;
+}
+
+.link:hover {
+    color: #0056b3;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    border: none;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    margin-top: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.delete-button:disabled {
+    background-color: #f5c6cb;
+    cursor: not-allowed;
+}
+
+.item-list {
+    max-height: 250px;
+    overflow-y: auto;
+    border-top: 1px solid #ddd;
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+}
+
+.item-list .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .summary {
