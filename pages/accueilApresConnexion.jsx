@@ -108,7 +108,7 @@ export default function AccueilApresConnexion() {
              <div className="dashboard-contenu">
                  <section className="section-dashboard scroll-fade-up" style={{ marginTop: '2rem', fontSize: '2.8rem' }}>
                      <h1>Bienvenue {prenom}</h1>
-                     <img src="/image/Voiture.png" alt="voiture animée" className="car-animation" />
+                     <img src="/image/Give.png" alt="voiture animée" className="car-animation" />
                      <h2 style={{ marginTop: '2rem', fontSize: '1.8rem' }}>Tableau de bord</h2>
 
                      <div className="carte-scrollable">

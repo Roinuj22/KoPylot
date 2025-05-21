@@ -77,7 +77,7 @@ export default function HomePage() {
             {/* === HERO === */}
             <section className="hero white-bg scroll-fade-up">
                 <h1>Bienvenue chez KoPylot</h1>
-                <img src="/image/Voiture.png" alt="voiture" className="car-animation" />
+                <img src="/image/Give.png" alt="voiture" className="car-animation" />
             </section>
 
             {/* === Partie avec dégradé après animation === */}
