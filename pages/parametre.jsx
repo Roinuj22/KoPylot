@@ -1,32 +1,26 @@
 import React, { useEffect, useState } from "react";
-import {useTheme} from "../components/ThemeContext";
+import { useTheme } from "../components/ThemeContext";
 
 export default function ParametresPage() {
-
     const [language, setLanguage] = useState("fr");
     const [notifications, setNotifications] = useState({ sms: false, email: false, push: false });
-
     const { theme, toggleTheme } = useTheme();
 
+    // Récupère les données du localStorage
     useEffect(() => {
         const savedTheme = localStorage.getItem("theme");
         const savedLang = localStorage.getItem("language");
         const savedNotif = JSON.parse(localStorage.getItem("notifications"));
 
-
+        if (savedTheme) document.body.className = savedTheme;
         if (savedLang) setLanguage(savedLang);
         if (savedNotif) setNotifications(savedNotif);
     }, []);
 
+    // Enregistre les notifications dans localStorage dès qu'elles changent
     useEffect(() => {
-        document.body.className = theme;
-    }, [theme]);
-
-/*    const toggleTheme = () => {
-        const newTheme = theme === "light" ? "dark" : "light";
-        setTheme(newTheme);
-        localStorage.setItem("theme", newTheme);
-    };*/
+        localStorage.setItem("notifications", JSON.stringify(notifications));
+    }, [notifications]);
 
     const handleLanguageChange = (e) => {
         const lang = e.target.value;
@@ -35,9 +29,10 @@ export default function ParametresPage() {
     };
 
     const toggleNotification = (type) => {
-        const updated = { ...notifications, [type]: !notifications[type] };
-        setNotifications(updated);
-        localStorage.setItem("notifications", JSON.stringify(updated));
+        setNotifications((prev) => ({
+            ...prev,
+            [type]: !prev[type]
+        }));
     };
 
     return (
@@ -47,20 +42,25 @@ export default function ParametresPage() {
             <div className="section">
                 <h3>Comment souhaitez-vous être notifié ?</h3>
                 <div className="switch-list">
-                    <label>
-                        <input type="checkbox" checked={notifications.sms} onChange={() => toggleNotification('sms')} />
+                    <label data-testid="notif-sms-label">
+                        <input
+                            type="checkbox"
+                            data-testid="notif-sms"
+                            checked={notifications.sms}
+                            onChange={() => toggleNotification('sms')}
+                        />
                         <span className="switch"></span>
                         SMS
                     </label>
-                    <label>
-                        <input type="checkbox" checked={notifications.email} onChange={() => toggleNotification('email')} />
+                    <label data-testid="notif-email-label">
+                        <input
+                            type="checkbox"
+                            data-testid="notif-email"
+                            checked={notifications.email}
+                            onChange={() => toggleNotification('email')}
+                        />
                         <span className="switch"></span>
                         Email
-                    </label>
-                    <label>
-                        <input type="checkbox" checked={notifications.push} onChange={() => toggleNotification('push')} />
-                        <span className="switch"></span>
-                        Notification push via l'application
                     </label>
                 </div>
             </div>
@@ -70,7 +70,6 @@ export default function ParametresPage() {
                 <select value={language} onChange={handleLanguageChange}>
                     <option value="fr">Français</option>
                     <option value="en">English</option>
-                    <option value="es">Español</option>
                 </select>
             </div>
 

@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
+'use client';
+import React, {useEffect, useState} from 'react';
 import Image from "next/image";
+import Link from 'next/link';
 
 export default function HomePage() {
     //  Animation au scroll : fait monter le texte doucement pendant qu'on défile
@@ -56,24 +58,53 @@ export default function HomePage() {
         },
     ];
 
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     return (
         <div>
-            {/* === NAVBAR === */}
-            <nav>
-                <div className="left">  <Image
-                    src="/image/Logo.png"
-                    alt="Logo KoPylot"
-                    width={150}
-                    height={50}
-                    className="logo-image"
-                    priority
-                /> </div>
-                <div className="right">
-                    <a href="#">Accueil</a>
-                    <a href="/connexion" className="nav-button">👤 Connexion</a>
+            {/* Desktop Navbar */}
+            <nav className="navbar-landing">
+                <div className="nav-left">
+                    <Link href="/a-propos">À propos</Link>
+                    <Link href="/pourquoi">Pourquoi KoPylot</Link>
+                    <Link href="/tarification">Tarification</Link>
+                </div>
+
+                <div className="nav-logo">
+                    <Link href="/">
+                        <Image
+                            src="/image/Logo.png"
+                            alt="Logo KoPylot"
+                            width={170}
+                            height={60}
+                            priority
+                        />
+                    </Link>
+                </div>
+
+                <div className="nav-right">
+                    <Link href="/connexion" className="nav-button">Se connecter</Link>
                 </div>
             </nav>
 
+            {/* Mobile Header */}
+            <header className="mobile-header-landing">
+                <Link href="/">
+                    <Image src="/image/Logo.png" alt="Logo KoPylot" width={120} height={40} priority />
+                </Link>
+                <div className="mobile-header-right">
+                    <Link href="/connexion" className="nav-button">Se connecter</Link>
+                    <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>☰</button>
+                </div>
+            </header>
+
+            {isMenuOpen && (
+                <div className="mobile-menu-popup">
+                    <Link href="/a-propos" onClick={() => setIsMenuOpen(false)}>À propos</Link>
+                    <Link href="/pourquoi" onClick={() => setIsMenuOpen(false)}>Pourquoi KoPylot</Link>
+                    <Link href="/tarification" onClick={() => setIsMenuOpen(false)}>Tarification</Link>
+                </div>
+            )}
             {/* === HERO === */}
             <section className="hero white-bg scroll-fade-up">
                 <h1>Bienvenue chez KoPylot</h1>

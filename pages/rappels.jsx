@@ -597,7 +597,7 @@ function SelectionnerRappels({ onBack }) {
                         </div>
 
                         {/* Bouton enregistrer en bas */}
-                        <button className="save-btn" onClick={() => setPopupForm(null)}>Enregistrer</button>
+                        <button data-testid="enregistrer-rappels" onClick={handleSave} className="save-btn">Enregistrer</button>
                     </div>
                 </div>
             )}

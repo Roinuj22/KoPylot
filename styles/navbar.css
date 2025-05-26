@@ -52,44 +52,35 @@ body.dark .logout:hover {
     background-color: #ffffff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     width: 100%;
-    position: relative;
-    min-height: 80px;
     border-bottom: 1px solid #eee;
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* Logo à gauche */
-.nav-left {
+.nav-left,
+.nav-right {
     display: flex;
     align-items: center;
-    flex-shrink: 0;
+    gap: 1.5rem;
 }
 
-.logo-image {
-    width: auto;
-    height: 80px;
-    object-fit: contain;
-}
-
-/* Liens au milieu */
-.nav-center {
+.nav-logo {
     display: flex;
-    gap: 2rem;
-    flex: 1;
     justify-content: center;
     align-items: center;
+    flex: 1;
 }
 
-.nav-center a {
+.nav-left a,
+.nav-right a {
     text-decoration: none;
-    color: #000; /* noir pro */
+    color: #000;
     font-weight: 500;
     font-size: 1rem;
-    position: relative;
     transition: color 0.3s ease;
 }
 
-.nav-center a:hover {
+.nav-left a:hover,
+.nav-right a:hover {
     color: #555;
 }
 
@@ -157,6 +148,80 @@ body.dark .logout:hover {
 
 .logout:hover {
     background-color: #333;
+}
+
+/*Mobile Navbar*/
+/* Masque mobile nav par défaut */
+.mobile-nav, .mobile-header {
+    display: none;
+}
+
+/* Affiche uniquement sur mobile */
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+
+    .mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        background: white;
+        border-bottom: 1px solid #eee;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .mobile-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 0.5rem 0;
+        background-color: white;
+        border-top: 1px solid #ddd;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+    }
+
+    .mobile-nav a {
+        flex: 1;
+        text-align: center;
+        color: #777;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: color 0.2s ease;
+    }
+
+    .mobile-nav a.active {
+        color: #1e40af;
+    }
+
+    .mobile-nav .center-icon {
+        background: transparent;
+        color: #777;
+        padding: 0;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .mobile-nav .center-icon.active {
+        background: #1e40af;
+        color: white !important;
+        border-radius: 50%;
+        padding: 0.6rem;
+        margin-top: -1rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
 }
 
 /* ===== Responsive ===== */

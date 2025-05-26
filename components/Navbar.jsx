@@ -1,50 +1,89 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { User } from "lucide-react";
+import { useRouter } from 'next/router';
+import {
+    BellRing,
+    FolderOpen,
+    CarFront,
+    Euro,
+    ClipboardCheck,
+    User
+} from "lucide-react";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
+    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+    const router = useRouter();
+    const path = router.pathname;
+    const isActive = (route) => path === route;
 
     return (
-        <nav className="navbar">
-            <div className="nav-left">
-                <Image
-                    src="/image/Logo.png"
-                    alt="Logo KoPylot"
-                    width={150}
-                    height={50}
-                    className="logo-image"
-                    priority
-                />
-            </div>
+        <>
+            {/* ======= Desktop Navbar ======= */}
+            <nav className="navbar">
+                <div className="nav-left">
+                    <Link href="/rappels">Rappels</Link>
+                    <Link href="/checklist">Checklist</Link>
+                    <Link href="/Depenses">Suivi de dépenses</Link>
+                    <Link href="/rapportVehicule">Rapport</Link>
+                </div>
 
-            <div className="nav-center">
-                <Link href="/MesVehicules">Mes véhicules</Link>
-                <Link href="/rappels">Rappels</Link>
-                <Link href="/checklist">Checklist</Link>
-                <Link href="/Depenses">Suivi des dépenses</Link>
-                <Link href="/rapportVehicule">Rapport véhicule</Link>
-                <Link href="/PlanEntretien">Plan Entretien</Link>
-            </div>
+                <div className="nav-logo">
+                    <Link href="/">
+                        <Image
+                            src="/image/Logo.png"
+                            alt="Logo KoPylot"
+                            width={170}
+                            height={60}
+                            className="logo-image"
+                            priority
+                        />
+                    </Link>
+                </div>
 
-            <div className="nav-right">
-                <button className="profile-button" onClick={toggleMenu}>
-                    <User size={45} color="black" />
+                <div className="nav-right">
+                    <Link href="/MesVehicules">Mes véhicules</Link>
+                    <button className="profile-button" onClick={toggleMenu}>
+                        <User size={40} color="black" />
+                    </button>
+                    {isMenuOpen && (
+                        <div className="profile-popup">
+                            <Link href="/profil">Mon profil</Link>
+                            <Link href="/document">Documents</Link>
+                            <Link href="/parametre">Paramètres</Link>
+                            <Link href="/" className="logout">Se déconnecter</Link>
+                        </div>
+                    )}
+                </div>
+            </nav>
+
+            {/* ======= Mobile Header ======= */}
+            <header className="mobile-header">
+                <Link href="/">
+                    <Image src="/image/Logo.png" alt="Logo" width={130} height={45} priority />
+                </Link>
+                <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="user-icon">
+                    <User size={32} />
                 </button>
                 {isMenuOpen && (
-                    <div className="profile-popup">
+                    <div className="profile-popup mobile">
                         <Link href="/profil">Mon profil</Link>
                         <Link href="/document">Documents</Link>
                         <Link href="/parametre">Paramètres</Link>
                         <Link href="/" className="logout">Se déconnecter</Link>
                     </div>
                 )}
-            </div>
-        </nav>
+            </header>
+
+            {/* ======= Mobile Bottom Nav ======= */}
+            <nav className="mobile-nav">
+                <Link href="/rappels" className={isActive("/rappels") ? "active" : ""}><BellRing size={24} /></Link>
+                <Link href="/document" className={isActive("/document") ? "active" : ""}><FolderOpen size={24} /></Link>
+                <Link href="/MesVehicules" className={isActive("/MesVehicules") ? "active" : ""}><CarFront size={28} /></Link>
+                <Link href="/Depenses" className={isActive("/Depenses") ? "active" : ""}><Euro size={24} /></Link>
+                <Link href="/checklist" className={isActive("/checklist") ? "active" : ""}><ClipboardCheck size={24} /></Link>
+            </nav>
+        </>
     );
 }

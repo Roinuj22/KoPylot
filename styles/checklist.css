@@ -69,18 +69,27 @@ body.dark .recap-card {
 
 /* === RECAPITULATIF === */
 .recap-card {
-    margin: 4rem auto;
+    margin: 2rem auto;
     background: white;
     border-radius: 20px;
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     padding: 2rem;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
+
+
+body {
+    overflow-x: hidden;
 }
 
 .recap-header {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -115,6 +124,8 @@ body.dark .recap-card {
 .with-warning .warning-icon {
     color: red;
 }
+
+
 
 /* === POPUP === */
 .popup-overlay {
