@@ -87,7 +87,7 @@ export default function HomePage() {
                 </div>
             </nav>
 
-            {/* Mobile Header */}
+            {/* Mobile */}
             <header className="mobile-header-landing">
                 <Link href="/">
                     <Image src="/image/Logo.png" alt="Logo KoPylot" width={120} height={40} priority />
