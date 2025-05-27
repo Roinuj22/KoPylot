@@ -8,7 +8,8 @@ import {
     CarFront,
     Euro,
     ClipboardCheck,
-    User
+    User,
+    FileText
 } from "lucide-react";
 
 export default function Navbar() {
@@ -79,10 +80,10 @@ export default function Navbar() {
             {/* ======= Mobile Bottom Nav ======= */}
             <nav className="mobile-nav">
                 <Link href="/rappels" className={isActive("/rappels") ? "active" : ""}><BellRing size={24} /></Link>
-                <Link href="/document" className={isActive("/document") ? "active" : ""}><FolderOpen size={24} /></Link>
+                <Link href="/checklist" className={isActive("/checklist") ? "active" : ""}><ClipboardCheck size={24} /></Link>
                 <Link href="/MesVehicules" className={isActive("/MesVehicules") ? "active" : ""}><CarFront size={28} /></Link>
                 <Link href="/Depenses" className={isActive("/Depenses") ? "active" : ""}><Euro size={24} /></Link>
-                <Link href="/checklist" className={isActive("/checklist") ? "active" : ""}><ClipboardCheck size={24} /></Link>
+                <Link href="/rapportVehicule" className={isActive("/rapportVehicule") ? "active" : ""}><FileText size={24} /></Link>
             </nav>
         </>
     );
