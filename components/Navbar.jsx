@@ -44,7 +44,7 @@ export default function Navbar() {
 
                 <div className="nav-right">
                     <Link href="/MesVehicules">Mes véhicules</Link>
-                    <button className="profile-button" onClick={toggleMenu}>
+                    <button className="profile-button" onClick={toggleMenu} aria-label="Menu utilisateur desktop">
                         <User size={40} color="black" />
                     </button>
                     {isMenuOpen && (
@@ -63,7 +63,7 @@ export default function Navbar() {
                 <Link href="/">
                     <Image src="/image/Logo.png" alt="Logo" width={130} height={45} priority />
                 </Link>
-                <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="user-icon">
+                <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="user-icon" aria-label="Menu utilisateur mobile">
                     <User size={32} />
                 </button>
                 {isMenuOpen && (

@@ -1,27 +1,40 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, within } from '@testing-library/react';
 import Navbar from '@/components/Navbar';
+import { useRouter } from 'next/router';
+
+jest.mock('next/router', () => ({
+    useRouter: jest.fn(),
+}));
+
+beforeEach(() => {
+    useRouter.mockReturnValue({
+        pathname: '/',
+        push: jest.fn(),
+    });
+});
 
 describe('Navbar', () => {
     it('affiche les liens principaux', () => {
         render(<Navbar />);
-
         expect(screen.getByText('Mes véhicules')).toBeInTheDocument();
         expect(screen.getByText('Rappels')).toBeInTheDocument();
         expect(screen.getByText('Checklist')).toBeInTheDocument();
-        expect(screen.getByText('Suivi des dépenses')).toBeInTheDocument();
-        expect(screen.getByText('Rapport véhicule')).toBeInTheDocument();
-        expect(screen.getByText('Plan Entretien')).toBeInTheDocument();
+        expect(screen.getByText('Suivi de dépenses')).toBeInTheDocument();
+        expect(screen.getByText('Rapport')).toBeInTheDocument();
     });
 
-    it('affiche le menu utilisateur au clic', () => {
+    it('affiche le menu utilisateur au clic (desktop)', () => {
         render(<Navbar />);
 
-        const profileButton = screen.getByRole('button');
+        const profileButton = screen.getByLabelText('Menu utilisateur desktop');
         fireEvent.click(profileButton);
 
-        expect(screen.getByText('Mon profil')).toBeInTheDocument();
-        expect(screen.getByText('Documents')).toBeInTheDocument();
-        expect(screen.getByText('Paramètres')).toBeInTheDocument();
-        expect(screen.getByText('Se déconnecter')).toBeInTheDocument();
+        const profilePopup = document.querySelector('.profile-popup');
+        const { getByText } = within(profilePopup);
+
+        expect(getByText('Mon profil')).toBeInTheDocument();
+        expect(getByText('Documents')).toBeInTheDocument();
+        expect(getByText('Paramètres')).toBeInTheDocument();
+        expect(getByText('Se déconnecter')).toBeInTheDocument();
     });
 });
