@@ -27,7 +27,7 @@ jobs:
         run: npm run test -- --coverage
 
       - name: Run Cypress E2E tests with coverage
-        run: npm run test:e2e
+        run: npx cypress run --browser chrome
 
       - name: Show coverage content (debug)
         run: ls -R coverage
