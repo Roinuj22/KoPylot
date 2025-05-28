@@ -38,7 +38,13 @@ jobs:
       - name: Run Cypress E2E tests with Chrome
         run: npx cypress run --browser chrome
 
-      - name: Show coverage content (debug)
+      - name: Merge coverage from Jest and Cypress
+        run: npm run merge:coverage
+
+      - name: Generate LCOV report
+        run: npm run coverage:report
+
+      - name: List coverage content (debug)
         run: ls -R coverage
 
       - name: SonarCloud Scan
