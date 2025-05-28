@@ -26,6 +26,15 @@ jobs:
       - name: Run unit tests with coverage
         run: npm run test -- --coverage
 
+      - name: Build Next.js app
+        run: npm run build
+
+      - name: Start Next.js app in background
+        run: npm start &
+
+      - name: Wait for Next.js to be ready
+        run: npx wait-on http://localhost:3000
+
       - name: Run Cypress E2E tests with Chrome
         run: npx cypress run --browser chrome
 
