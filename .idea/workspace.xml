@@ -6,26 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7fcfada0-7197-490e-97dc-929794e587c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.nyc_output/out.json" beforeDir="false" afterPath="$PROJECT_DIR$/.nyc_output/out.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__tests__/Footer.test.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/__tests__/Footer.test.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/KoPylot/components/Footer.jsx.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/KoPylot/components/Navbar.jsx.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/KoPylot/components/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/KoPylot/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/KoPylot/jest.setup.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/KoPylot/pages/connexion.jsx.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/KoPylot/pages/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/KoPylot/pages/index.jsx.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/components/ThemeContext.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov-report/components/ThemeContext.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/components/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov-report/components/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov-report/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/pages/_app.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov-report/pages/_app.js.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/pages/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov-report/pages/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/lcov.info" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cypress/screenshots/documents.cy.js/Page Documents -- Ajoute un document fictif (failed).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/merge-coverage.js" beforeDir="false" afterPath="$PROJECT_DIR$/merge-coverage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +100,7 @@
       <workItem from="1748008963584" duration="12699000" />
       <workItem from="1748262062559" duration="5208000" />
       <workItem from="1748268101646" duration="1895000" />
-      <workItem from="1748417196536" duration="14937000" />
+      <workItem from="1748417196536" duration="15235000" />
     </task>
     <servers />
   </component>

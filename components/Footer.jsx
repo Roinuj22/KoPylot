@@ -10,7 +10,7 @@ export default function Footer() {
                 <Link href="#">A propos</Link>
                 <Link href="#">Contact</Link>
                 <Link href="#">Actualités</Link>
-                <Link href="#">Fak</Link>
+                <Link href="#">FAQ</Link>
                 <Link href="#">Forum</Link>
                 <Link href="#">Une idée?</Link>
             </div>

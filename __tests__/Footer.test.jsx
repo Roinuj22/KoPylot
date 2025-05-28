@@ -5,12 +5,12 @@ describe('Footer', () => {
     it('affiche les liens principaux', () => {
         render(<Footer />);
 
-        expect(screen.getByText('Product')).toBeInTheDocument();
-        expect(screen.getByText('Features')).toBeInTheDocument();
-        expect(screen.getByText('Resources')).toBeInTheDocument();
-        expect(screen.getByText('About')).toBeInTheDocument();
-        expect(screen.getByText('Blog')).toBeInTheDocument();
-        expect(screen.getByText('Support')).toBeInTheDocument();
+        expect(screen.getByText('A propos')).toBeInTheDocument();
+        expect(screen.getByText('Contact')).toBeInTheDocument();
+        expect(screen.getByText('Actualités')).toBeInTheDocument();
+        expect(screen.getByText('FAQ')).toBeInTheDocument();
+        expect(screen.getByText('Forum')).toBeInTheDocument();
+        expect(screen.getByText('Une idée?')).toBeInTheDocument();
     });
 
     it('affiche le logo KoPylot', () => {
