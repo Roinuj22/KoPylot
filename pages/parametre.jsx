@@ -2,19 +2,29 @@ import React, { useEffect, useState } from "react";
 import { useTheme } from "../components/ThemeContext";
 
 export default function ParametresPage() {
-    const [language, setLanguage] = useState("fr");
-    const [notifications, setNotifications] = useState({ sms: false, email: false, push: false });
+    const getInitialNotifications = () => {
+        if (typeof window !== "undefined") {
+            const saved = localStorage.getItem("notifications");
+            if (saved) return JSON.parse(saved);
+        }
+        return { sms: false, email: false, push: false };
+    };
+
+    const getInitialLanguage = () => {
+        if (typeof window !== "undefined") {
+            return localStorage.getItem("language") || "fr";
+        }
+        return "fr";
+    };
+
+    const [language, setLanguage] = useState(getInitialLanguage);
+    const [notifications, setNotifications] = useState(getInitialNotifications);
     const { theme, toggleTheme } = useTheme();
 
-    // Récupère les données du localStorage
+    // Applique le thème à body si existant
     useEffect(() => {
         const savedTheme = localStorage.getItem("theme");
-        const savedLang = localStorage.getItem("language");
-        const savedNotif = JSON.parse(localStorage.getItem("notifications"));
-
         if (savedTheme) document.body.className = savedTheme;
-        if (savedLang) setLanguage(savedLang);
-        if (savedNotif) setNotifications(savedNotif);
     }, []);
 
     // Enregistre les notifications dans localStorage dès qu'elles changent
