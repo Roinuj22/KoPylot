@@ -9,7 +9,7 @@ describe('HomePage', () => {
 
     it('affiche les prestations', () => {
         render(<HomePage />);
-        expect(screen.getByText('Nos Prestations')).toBeInTheDocument();
+        expect(screen.getByText('Nos solutions')).toBeInTheDocument();
     });
 
     it('affiche les avis utilisateurs', () => {

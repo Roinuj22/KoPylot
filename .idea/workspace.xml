@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7fcfada0-7197-490e-97dc-929794e587c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cypress.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__tests__/HomePage.test.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/__tests__/HomePage.test.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov-report/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverage/lcov.info" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +101,7 @@
       <workItem from="1748008963584" duration="12699000" />
       <workItem from="1748262062559" duration="5208000" />
       <workItem from="1748268101646" duration="1895000" />
-      <workItem from="1748417196536" duration="6204000" />
+      <workItem from="1748417196536" duration="6718000" />
     </task>
     <servers />
   </component>
