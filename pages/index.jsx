@@ -65,9 +65,9 @@ export default function HomePage() {
             {/* Desktop Navbar */}
             <nav className="navbar-landing">
                 <div className="nav-left">
-                    <Link href="/a-propos">À propos</Link>
-                    <Link href="/pourquoi">Pourquoi KoPylot</Link>
-                    <Link href="/tarification">Tarification</Link>
+                    <Link href="#">À propos</Link>
+                    <Link href="#">Pourquoi KoPylot</Link>
+                    <Link href="#">Tarification</Link>
                 </div>
 
                 <div className="nav-logo">
@@ -107,7 +107,8 @@ export default function HomePage() {
             )}
             {/* === HERO === */}
             <section className="hero white-bg scroll-fade-up">
-                <h1>Bienvenue chez KoPylot</h1>
+                <h1>LA NOUVELLE ÈRE DE LA GESTION AUTOMOBILLE</h1>
+                <h3>Bienvenue chez KoPylot</h3>
                 <img src="/image/Give.png" alt="voiture" className="car-animation" />
             </section>
 
@@ -115,7 +116,7 @@ export default function HomePage() {
             <div className="gradient-bg">
                 {/* === INTRO SERVICES === */}
                 <section className="services-intro scroll-fade-up">
-                    <h1>Nos Prestations</h1>
+                    <h1>Nos solutions</h1>
                     <p>
                         L'entretien de votre voiture devient simple et au juste prix !<br />
                         Chez <strong>KoPylot</strong>, retrouvez l'ensemble des interventions disponibles pour votre véhicule.
