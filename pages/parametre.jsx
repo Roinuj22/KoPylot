@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useTheme } from "../components/ThemeContext";
 
 export default function ParametresPage() {
+    const [hasMounted, setHasMounted] = useState(false);
+
     const getInitialNotifications = () => {
         if (typeof window !== "undefined") {
             const saved = localStorage.getItem("notifications");
@@ -17,25 +19,36 @@ export default function ParametresPage() {
         return "fr";
     };
 
-    const [language, setLanguage] = useState(getInitialLanguage);
-    const [notifications, setNotifications] = useState(getInitialNotifications);
+    const [language, setLanguage] = useState("fr");
+    const [notifications, setNotifications] = useState({ sms: false, email: false, push: false });
     const { theme, toggleTheme } = useTheme();
 
-    // Applique le thème à body si existant
+    // Attend que le composant soit monté (évite l'accès à localStorage côté serveur)
     useEffect(() => {
+        setLanguage(getInitialLanguage());
+        setNotifications(getInitialNotifications());
         const savedTheme = localStorage.getItem("theme");
         if (savedTheme) document.body.className = savedTheme;
+        setHasMounted(true);
     }, []);
 
-    // Enregistre les notifications dans localStorage dès qu'elles changent
+    // Sauvegarde les notifications dès qu'elles changent
     useEffect(() => {
-        localStorage.setItem("notifications", JSON.stringify(notifications));
-    }, [notifications]);
+        if (hasMounted) {
+            localStorage.setItem("notifications", JSON.stringify(notifications));
+        }
+    }, [notifications, hasMounted]);
+
+    // Sauvegarde la langue si elle change
+    useEffect(() => {
+        if (hasMounted) {
+            localStorage.setItem("language", language);
+        }
+    }, [language, hasMounted]);
 
     const handleLanguageChange = (e) => {
         const lang = e.target.value;
         setLanguage(lang);
-        localStorage.setItem("language", lang);
     };
 
     const toggleNotification = (type) => {
@@ -44,6 +57,8 @@ export default function ParametresPage() {
             [type]: !prev[type]
         }));
     };
+
+    if (!hasMounted) return null;
 
     return (
         <div className="parametres-page">
