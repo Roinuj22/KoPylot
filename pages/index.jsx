@@ -118,6 +118,10 @@ export default function HomePage() {
                 {/* === INTRO SERVICES === */}
                 <section className="services-intro scroll-fade-up">
                     <h1>Nos solutions</h1>
+
+                    {/* Carré vidéo statique */}
+                    <img src="/image/video_demo.png" alt="aperçu vidéo" className="video-preview" />
+
                     <p>
                         L'entretien de votre voiture devient simple et au juste prix !<br />
                         Chez <strong>KoPylot</strong>, retrouvez l'ensemble des interventions disponibles pour votre véhicule.

@@ -1,18 +1,17 @@
 const fs = require('fs');
-const { createCoverageMap } = require('istanbul-lib-coverage');
-const libReport = require('istanbul-lib-report');
-const reports = require('istanbul-reports');
+const path = require('path');
+const { createReporter } = require('istanbul-api');
+const istanbulCoverage = require('istanbul-lib-coverage');
 
-const cypressCoverage = JSON.parse(fs.readFileSync('./coverage/cypress-coverage/coverage-final.json'));
+const coverageMap = istanbulCoverage.createCoverageMap({});
 
-const map = createCoverageMap(cypressCoverage);
-
-const context = libReport.createContext({
-    dir: './coverage',
-    coverageMap: map
+['coverage/coverage-final.json', 'coverage/cypress-coverage/coverage-final.json'].forEach(file => {
+    if (fs.existsSync(file)) {
+        const content = JSON.parse(fs.readFileSync(file));
+        coverageMap.merge(content);
+    }
 });
 
-const report = reports.create('lcov');
-report.execute(context);
-
-console.log('✅ Rapport LCOV généré à partir de Cypress');
+const reporter = createReporter();
+reporter.addAll(['lcov', 'text']);
+reporter.write(coverageMap);

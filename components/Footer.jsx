@@ -7,12 +7,12 @@ export default function Footer() {
     return (
         <footer className="footer">
             <div className="footer-top">
-                <Link href="#">Product</Link>
-                <Link href="#">Features</Link>
-                <Link href="#">Resources</Link>
-                <Link href="#">About</Link>
-                <Link href="#">Blog</Link>
-                <Link href="#">Support</Link>
+                <Link href="#">A propos</Link>
+                <Link href="#">Contact</Link>
+                <Link href="#">Actualités</Link>
+                <Link href="#">Fak</Link>
+                <Link href="#">Forum</Link>
+                <Link href="#">Une idée?</Link>
             </div>
 
             <div className="footer-logo">

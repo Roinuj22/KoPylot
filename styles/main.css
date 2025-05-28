@@ -376,7 +376,14 @@ body {
     margin: 0 auto;
     line-height: 1.8;
 }
+.video-preview {
+    width: 500px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 12px;
 
+}
 
 /* ===== FEATURES / les cartes dispositions ===== */
 .features-stacked {
