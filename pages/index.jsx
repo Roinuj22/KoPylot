@@ -107,8 +107,9 @@ export default function HomePage() {
             )}
             {/* === HERO === */}
             <section className="hero white-bg scroll-fade-up">
-                <h1>LA NOUVELLE ÈRE DE LA GESTION AUTOMOBILLE</h1>
-                <h3>Bienvenue chez KoPylot</h3>
+                <h1>LA NOUVELLE ÈRE DE LA </h1>
+                    <h1> GESTION AUTOMOBILLE </h1>
+                <h2>Bienvenue chez KoPylot</h2>
                 <img src="/image/Give.png" alt="voiture" className="car-animation" />
             </section>
 

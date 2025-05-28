@@ -202,10 +202,30 @@ body {
     background: white;
     color: black;
 }
-
 .white-bg {
     background: white;
     color: black;
+    font-family: 'Inter', sans-serif;
+    text-align: left;
+}
+
+.white-bg h1,
+.white-bg h2 {
+    font-weight: normal;
+    text-align: left;
+    margin: 0;
+}
+
+.hero {
+    display: block;
+    text-align: left;
+    margin: 0;
+    padding-left: 20px;
+    margin-left: 20px;
+}
+.hero h1,
+.hero h2 {
+    font-weight: normal;
 }
 .gradient-bg {
     background: linear-gradient(
