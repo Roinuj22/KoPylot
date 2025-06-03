@@ -7,7 +7,7 @@ describe('Page Mes Véhicules', () => {
     });
 
     it('Ajoute un véhicule complet via le formulaire', () => {
-        cy.get('.ajouter-btn').click();
+        cy.get('.ajouter-vehicule').click();
 
         // ÉTAPE 1
         cy.get('input[name="immatriculation"]').type('AB123CD');
