@@ -51,33 +51,7 @@ export default function AccueilApresConnexion() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [isClient]); //  Dépend de isClient
 
-    const features = [
-        {
-            title: "Rappels d'entretien",
-            description: "Ne ratez plus aucune révision ou contrôle technique. On vous alerte au bon moment, sans stress.",
-            image: "/image/Rappel.jpg",
-        },
-        {
-            title: "Checklist",
-            description: "Inspectez facilement votre véhicule avec notre checklist guidée. Parfait avant un long trajet ou un contrôle mensuel.",
-            image: "/image/Checklist.jpg",
-        },
-        {
-            title: "Suivi des dépenses",
-            description: "Gardez un œil sur vos frais auto. Saisissez ou scannez vos factures et suivez vos dépenses avec des stats claires et utiles.",
-            image: "/image/depense.png",
-        },
-        {
-            title: "Documents",
-            description: "Regroupez tous vos papiers auto au même endroit. Vos factures, assurances ou carte grise sont accessibles en un clic.",
-            image: "/image/Document.jpg",
-        },
-        {
-            title: "Rapports véhicule",
-            description: "Générez un rapport complet de votre véhicule en quelques secondes. Parfait pour une vente ou un échange avec un pro.",
-            image: "/image/Rapport .jpg",
-        },
-    ];
+
 
     if (!isClient) {
         return null; // Ne rien afficher tant que pas chargé côté client
@@ -85,23 +59,6 @@ export default function AccueilApresConnexion() {
 
     return (
          <div className="page-connectee">
-            {/* === NAVBAR CONNECTÉE === */}
-            {/* */}
-            {/*<nav className="navbar-connectee">*/}
-            {/*    <div className="nav-left">*/}
-            {/*        <a href="/MesVehicules">Mes véhicules</a>*/}
-            {/*        <a href="/rappels">Rappels</a>*/}
-            {/*        <a href="/cheecklist">Checklist</a>*/}
-            {/*        <a href="#">Suivi des dépenses</a>*/}
-            {/*        <a href="/rapportVehicule">Rapport véhicule</a>*/}
-            {/*    </div>*/}
-            {/*    <div className="nav-center logo">KoPylot</div>*/}
-            {/*    <div className="nav-right">*/}
-            {/*        <a href="/profil" className="profile-icon" style={{ textDecoration: "none", fontSize: "1.8rem", color: "#0557d5" }}>*/}
-            {/*            👤*/}
-            {/*        </a>*/}
-            {/*    </div>*/}
-            {/*</nav>*/}
 
 
             {/* === DASHBOARD === */}
@@ -143,38 +100,26 @@ export default function AccueilApresConnexion() {
                  </section>
 
 
-                {/* === FEATURES === */}
-                <section className="features-stacked">
-                    {features.map((feature, index) => (
-                        <div className={`feature-row ${index % 2 === 0 ? 'row-left' : 'row-right'} scroll-fade-up`} key={index}>
-                            <img src={feature.image} alt={feature.title} />
-                            <div className="feature-text">
-                                <h3>
-                                    <a href="#" style={{ textDecoration: "none", color: "inherit" }}>
-                                        {feature.title}
-                                    </a>
-                                </h3>
-                                <p>{feature.description}</p>
-                            </div>
-                        </div>
-                    ))}
-                </section>
+
 
                 {/* === CONTACT === */}
-                <section className="contact-section scroll-fade-up">
-                    <h2>Contact</h2>
-                    <div className="contact-content">
-                        <form className="contact-form">
-                            <input type="text" placeholder="Nom" required />
-                            <input type="email" placeholder="Email" required />
-                            <textarea placeholder="Message" rows={4} required></textarea>
-                            <button type="submit">Envoyer</button>
-                        </form>
-                        <div className="contact-image">
-                            <img src="/image/Bas.jpg" alt="voiture contact" />
-                        </div>
-                    </div>
-                </section>
+                 <section className="contact-section scroll-fade-up">
+                     <h2 style={{ textAlign: "left" }}>Contactez nous</h2>
+                     <div className="contact-content">
+                         <form className="contact-form">
+                             <div className="name-row">
+                                 <input type="text" placeholder="Prénom" required />
+                                 <input type="text" placeholder="Nom" required />
+                             </div>
+                             <input type="email" placeholder="Adresse mail" required />
+                             <textarea placeholder="Votre message" rows={4} required></textarea>
+                             <button type="submit">Envoyer</button>
+                         </form>
+                         <div className="contact-image">
+                             <img src="/image/Bas.jpg" alt="voiture contact" />
+                         </div>
+                     </div>
+                 </section>
             </div>
         </div>
     );

@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import {
     BellRing,
-    FolderOpen,
     CarFront,
     Euro,
     ClipboardCheck,
@@ -19,15 +18,17 @@ export default function Navbar() {
     const path = router.pathname;
     const isActive = (route) => path === route;
 
+
     return (
         <>
             {/* ======= Desktop Navbar ======= */}
             <nav className="navbar">
                 <div className="nav-left">
-                    <Link href="/rappels">Rappels</Link>
-                    <Link href="/checklist">Checklist</Link>
-                    <Link href="/Depenses">Suivi de dépenses</Link>
-                    <Link href="/rapportVehicule">Rapport</Link>
+                    <Link href="/rappels" className={router.pathname === "/rappels" ? "active" : ""}>Rappels</Link>
+                    <Link href="/checklist" className={router.pathname === "/checklist" ? "active" : ""}>Checklist</Link>
+                    <Link href="/Depenses" className={router.pathname === "/Depenses" ? "active" : ""}>Suivi de dépenses</Link>
+                    <Link href="/rapportVehicule" className={router.pathname === "/rapportVehicule" ? "active" : ""}>Rapport</Link>
+                    <Link href="/PlanEntretien" className={router.pathname === "/PlanEntretien" ? "active" : ""}>Plan d'entretien</Link>
                 </div>
 
                 <div className="nav-logo">
@@ -44,7 +45,7 @@ export default function Navbar() {
                 </div>
 
                 <div className="nav-right">
-                    <Link href="/MesVehicules">Mes véhicules</Link>
+                    <Link href="/MesVehicules" className={router.pathname === "/MesVehicules" ? "active" : ""}>Mes véhicules</Link>
                     <button className="profile-button" onClick={toggleMenu} aria-label="Menu utilisateur desktop">
                         <User size={40} color="black" />
                     </button>

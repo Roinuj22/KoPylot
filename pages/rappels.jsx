@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Pencil, Wrench, Settings, CheckSquare} from 'lucide-react';
+import { Pencil, Wrench, Settings, Funnel} from 'lucide-react';
+
 
 
 export default function RappelsPage() {
@@ -20,7 +21,8 @@ export default function RappelsPage() {
     const rappelsPredefinis = [
         { nom: "Vidange huile", date: "01/02/2025", urgent: true },
         { nom: "Changement des plaquettes de frein", date: "02/08/2025", urgent: false },
-        { nom: "Expiration du document \"assurance\"", date: "04/09/2025", urgent: false }
+        { nom: "Expiration du document \"assurance\"", date: "04/09/2025", urgent: false },
+        { nom: 'Climatisation', date: '10/10/2025', urgent: false }
     ];
 
     useEffect(() => {
@@ -131,14 +133,14 @@ export default function RappelsPage() {
                     </nav>
 
                     <div className="kilometrage-section">
-                        <p className="clickable" onClick={() => handleClick("kilometrage")}><CheckSquare size={25} color="green"/> <span className="text-blue underline">Estimer votre kilométrage</span></p>
+                        <p className="clickable" onClick={() => handleClick("kilometrage")}> <span className="text-blue underline">Estimer votre kilométrage</span></p>
                         <p>Votre kilométrage estimé est de {kilometrageEstime ? `${kilometrageEstime} km` : ".... km"} </p>
                     </div>
 
                     <div className="rappel-card">
                         <div className="card-header">
                             <h2>RAPPEL À VENIR</h2>
-                            <button className="filter-btn" onClick={() => setShowFiltrePopup(true)}>Filtrer</button>
+                            <button className="filter-btn" onClick={() => setShowFiltrePopup(true)}><Funnel style={{color:"white",size:"1.2"}}/>Filtrer</button>
                         </div>
 
                         <div className="rappel-list">
@@ -218,7 +220,7 @@ export default function RappelsPage() {
                     <div className="popup-content" style={{ maxWidth: "400px" }}>
                         <button className="close-btn" onClick={() => setShowFiltrePopup(false)}>✖️</button>
 
-                        <h3>Filtres</h3>
+                        <h3> Filtres</h3>
 
                         {/* Tri - optionnel */}
                         <label htmlFor="tri">Trier par</label>
@@ -330,8 +332,7 @@ function FormulaireKilometrage({ onSave, onBack }) {
     return (
         <div className="form-card">
             <div className="form-header">
-                <button className="back-btn" onClick={onBack}>⬅️ Retour</button>
-                <button className="close-btn" onClick={onBack}>✖️</button>
+                <button className="back-btn" onClick={onBack}>✖️</button>
             </div>
 
             <h2>Estimation du kilométrage</h2>
@@ -473,52 +474,62 @@ function SelectionnerRappels({ onBack }) {
         }
     };
 
-    const listeRappels = [
-        { nom: "Vidange huile moteur" },
-        { nom: "Remplacement des filtres" },
-        { nom: "Freins", sous: "(plaquettes, disques)" },
-        { nom: "Pneus", sous: "(usure, permutation)" },
-        { nom: "Distribution", sous: "(courroie, chaîne)" },
-        { nom: "Batterie" },
-        { nom: "Climatisation" },
-        { nom: "Liquide de refroidissement" },
-        { nom: "Contrôle technique" },
-        { nom: "Rappels constructeurs spécifiques", sous: "(sécurité, mise à jour)" }
+    const categories = [
+        {
+            titre: "Entretien mécanique & moteur",
+            items: [
+                { nom: "Vidange huile moteur" },
+                { nom: "Remplacement des filtres" },
+                { nom: "Liquide de refroidissement" },
+                { nom: "Distribution", sous: "(courroie, chaîne)" }
+            ]
+        },
+        {
+            titre: "Sécurité & confort",
+            items: [
+                { nom: "Freins", sous: "(plaquettes, disques)" },
+                { nom: "Pneus", sous: "(usure, permutation)" },
+                { nom: "Batterie" },
+                { nom: "Climatisation" }
+            ]
+        },
+        {
+            titre: "Conformité",
+            items: [
+                { nom: "Contrôle technique" },
+                { nom: "Rappels constructeurs spécifiques", sous: "(sécurité, mise à jour)" }
+            ]
+        }
     ];
 
     return (
         <div className="form-card">
             <div className="form-header">
-                <button className="back-btn" onClick={onBack}>⬅️ Retour</button>
-                <button className="close-btn" onClick={onBack}>✖️</button>
+                <button className="back-btn" onClick={onBack}>✖️</button>
             </div>
 
             <h2>Sélectionner les entretiens</h2>
 
             <div className="selection-grid">
-                {listeRappels.map(item => (
-                    <div key={item.nom} className="selection-item">
-                        <div className="text">
-                            <span>{item.nom}</span>
-                            {item.sous && <small>{item.sous}</small>}
-                        </div>
-                        <label className="switch">
-                            <input type="checkbox" checked={rappels[item.nom] || false} onChange={() => handleToggle(item.nom)} />
-                            <span className="slider"></span>
-                        </label>
+                {categories.map((cat) => (
+                    <div key={cat.titre} className="selection-column">
+                        <h3 className="category-title">{cat.titre}</h3>
+                        {cat.items.map(item => (
+                            <div key={item.nom} className="selection-item">
+                                <div className="text">
+                                    <span>{item.nom}</span>
+                                    {item.sous && <small>{item.sous}</small>}
+                                </div>
+                                <label className="switch">
+                                    <input type="checkbox" checked={rappels[item.nom] || false} onChange={() => handleToggle(item.nom)} />
+                                    <span className="slider"></span>
+                                </label>
+                            </div>
+                        ))}
                     </div>
                 ))}
             </div>
 
-            <div className="autres-entretiens">
-                <label>Autres entretiens</label>
-                <input
-                    type="text"
-                    value={autreEntretien}
-                    onChange={(e) => setAutreEntretien(e.target.value)}
-                    placeholder="Ajouter un entretien"
-                />
-            </div>
 
             <button onClick={handleSave} className="save-btn">Enregistrer</button>
 
@@ -621,11 +632,10 @@ function FormulaireTrajet({ onBack }) {
     return (
         <div className="form-card">
             <div className="form-header">
-                <button className="back-btn" onClick={onBack}>⬅️ Retour</button>
-                <button className="close-btn" onClick={onBack}>✖️</button>
+                <button className="back-btn" onClick={onBack}>✖️</button>
             </div>
 
-            <h2>Déclarer un trajet inhabituel</h2>
+            <h2>Déclarer un trajet inhabituel (Plus de 100 Km) </h2>
 
             <label>Type de trajet (vacances, travail...)</label>
             <input name="typeTrajet" onChange={handleChange} />
@@ -658,13 +668,12 @@ function FormulaireParametres({ onBack }) {
     return (
         <div className="form-card">
             <div className="form-header">
-                <button className="back-btn" onClick={onBack}>⬅️ Retour</button>
-                <button className="close-btn" onClick={onBack}>✖️</button>
+                <button className="back-btn" onClick={onBack}>✖️</button>
             </div>
 
             <h2>Paramètres de notification</h2>
 
-            <label>À quel moment souhaitez-vous recevoir votre rappel ?</label>
+            <label>À quel fréquence souhaitez-vous recevoir votre rappel ?</label>
             <select value={rappelMoment} onChange={(e) => setRappelMoment(e.target.value)}>
                 <option value="">-- Choisir --</option>
                 <option value="1semaine">1 semaine avant</option>

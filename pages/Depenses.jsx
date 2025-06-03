@@ -98,7 +98,7 @@ export default function DepensePage() {
             <div className="header">
                 <h1 className="title">Suivi des dépenses</h1>
                 <div className="header-actions">
-                    <button className="link" onClick={() => setShowModal(true)}>Ajouter une dépense</button>
+                    <button className="link" onClick={() => setShowModal(true)}>Ajouter une opération</button>
                     <button className="export-button" onClick={() => window.print()}>Exporter PDF</button>
                 </div>
             </div>

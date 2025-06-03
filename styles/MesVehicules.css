@@ -1,15 +1,16 @@
 /* ===== GLOBAL ===== */
 body.light .mes-vehicules {
-    background: linear-gradient(
-            to bottom,
-            #ffffff 8%,
-            #7fb1ff 26%,
-            #5195fe 53%,
-            #0557d5 80%
-    );
+    background: linear-gradient(to bottom, #ffffff 8%, #7fb1ff 30%, #5195fe 60%, #0557d5 100%);
     color: black;
     font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    padding-bottom: 6rem; /* Ajoute de l’espace en bas */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+
 
 body.dark .mes-vehicules {
     background-color: #121212;
@@ -28,62 +29,34 @@ body.dark .carte-vehicule {
 
 
 /* ===== HEADER ===== */
+
+
+/* ===== BOUTON AJOUTER ===== */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
-    padding: 0 1rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 2rem auto;
+    padding: 0 2rem;
 }
 
-.logo-vehicules {
-    font-size: 1.8rem;
+.titre-vehicules {
+    font-size: 2.8rem;
     font-weight: bold;
-    color: black;
-    margin-bottom: 1rem;
+    margin: 0;
 }
 
-/* ===== BOUTON AJOUTER ===== */
-.ajouter-btn {
+.ajouter-vehicule {
+    font-weight: bold;
     font-size: 1.5rem;
-    background: #0557d5;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    text-decoration: underline;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-/* Effet hover + clic */
-.ajouter-btn:hover {
-    background: #003c9e;
-    transform: scale(1.1);
-}
-
-.ajouter-btn:active {
-    animation: pulse 0.4s ease;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
-/* ===== TEXTE SOUS LE BOUTON ===== */
-.ajouter-texte {
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
     color: black;
-    font-weight: 500;
-    text-align: center;
 }
+
+
 
 /* ===== RESPONSIVE HEADER ===== */
 @media (max-width: 768px) {
@@ -150,12 +123,14 @@ body.dark .carte-vehicule {
     align-items: center;
     padding: 2rem;
     border-radius: 1rem;
+    width: 90%;
     max-width: 800px;
+    min-height: 200px;
     margin: 2rem auto;
     position: relative;
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
-    min-height: 220px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
 
 .carte-vehicule:hover {

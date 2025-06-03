@@ -43,6 +43,7 @@ body.dark .preview-modal {
 .header-actions .link {
     margin-left: 1rem;
     text-decoration: underline;
+    color: black;
     background: none;
     border: none;
     cursor: pointer;

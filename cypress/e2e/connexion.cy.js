@@ -24,4 +24,15 @@ describe('Test de la page de connexion', () => {
         cy.get('a[href="/inscription"]').click();
         cy.url().should('include', '/inscription');
     });
+    it('Affiche une erreur si aucun compte n\'existe', () => {
+        localStorage.removeItem('kopylotUser');
+        cy.visit('http://localhost:3000/connexion');
+        cy.get('input[name="email"]').type('nobody@mail.com');
+        cy.get('input[name="password"]').type('123456');
+        cy.get('button[type="submit"]').click();
+        cy.contains('Aucun compte trouvé. Veuillez vous inscrire.').should('exist');
+    });
+    it('Affiche le lien de retour vers l\'accueil', () => {
+        cy.get('a.back-link').should('have.attr', 'href', '/');
+    });
 });

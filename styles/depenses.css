@@ -47,6 +47,7 @@ body.dark .item {
 .link {
     background: none;
     border: none;
+    color:black;
     text-decoration: underline;
     cursor: pointer;
     font-size: 1rem;

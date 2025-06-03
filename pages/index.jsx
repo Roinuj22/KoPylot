@@ -156,15 +156,17 @@ export default function HomePage() {
 
                 {/* === CONTACT === */}
                 <section className="contact-section scroll-fade-up">
-                    <h2>Contact</h2>
+                    <h2 >Contactez nous</h2>
                     <div className="contact-content">
                         <form className="contact-form">
-                            <input type="text" placeholder="Nom" required />
-                            <input type="email" placeholder="Email" required />
-                            <textarea placeholder="Message" rows={4} required></textarea>
+                            <div className="name-row">
+                                <input type="text" placeholder="Prénom" required />
+                                <input type="text" placeholder="Nom" required />
+                            </div>
+                            <input type="email" placeholder="Adresse mail" required />
+                            <textarea placeholder="Votre message" rows={4} required></textarea>
                             <button type="submit">Envoyer</button>
                         </form>
-
                         <div className="contact-image">
                             <img src="/image/Bas.jpg" alt="voiture contact" />
                         </div>

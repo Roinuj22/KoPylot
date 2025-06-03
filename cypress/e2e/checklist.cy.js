@@ -29,4 +29,20 @@ describe('Page Checklist de contrôle', () => {
         cy.contains('Éclairage et signalisation').should('exist');
         cy.get('.warning-icon').should('have.length.at.least', 1);
     });
+    it('Ouvre les autres popups (sécurité, éclairage, extérieur)', () => {
+        cy.get('.hotspot').eq(0).click(); // éclairage
+        cy.contains('Éclairage et signalisation').should('exist');
+        cy.get('.close-btn').click();
+
+        cy.get('.hotspot').eq(2).click(); // sécurité
+        cy.contains('Éléments de sécurité').should('exist');
+        cy.get('.close-btn').click();
+
+        cy.get('.hotspot').eq(3).click(); // extérieur
+        cy.contains('Extérieur du véhicule').should('exist');
+    });
+    it('Déclenche le champ fichier PDF', () => {
+        cy.get('label.export-btn').click();
+        cy.get('input[type="file"]').should('exist');
+    });
 });

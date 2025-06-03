@@ -201,6 +201,7 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background: white;
     color: black;
+
 }
 .white-bg {
     background: white;
@@ -236,7 +237,7 @@ body {
             #2563eb 70%,
             #1e3a8a 100%
     );
-    color: white;
+    color: black;
     min-height: 100vh;
     padding-top: 3rem;
     padding-bottom: 5rem;
@@ -377,12 +378,12 @@ body {
     line-height: 1.8;
 }
 .video-preview {
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     height: auto;
     display: block;
     margin: 20px auto;
     border-radius: 12px;
-
 }
 
 /* ===== FEATURES / les cartes dispositions ===== */
@@ -402,7 +403,7 @@ body {
     flex-wrap: wrap;
     background: transparent;
     border-radius: 1rem;
-    color: white;
+    color: black;
     transition: transform 0.3s ease;
     min-height: 420px;
     padding: 1.5rem 2rem;
@@ -427,6 +428,7 @@ body {
     padding: 0.5rem 1rem;
     font-size: 1.2rem;
     font-family: 'Segoe UI', sans-serif;
+    color: black;
 }
 
 .feature-text h3 {
@@ -506,7 +508,7 @@ body {
 /* ===== CONTACT ===== */
 .contact-section {
     padding: 3rem 1rem;
-    color: white;
+    color: black;
     overflow-x: hidden;
 }
 
@@ -524,6 +526,7 @@ body {
     margin: 0 auto;
     justify-content: center;
     align-items: flex-start;
+    color: black;
 }
 
 .contact-form {
@@ -548,19 +551,29 @@ body {
     width: 100%;
     box-sizing: border-box;
 }
-
 .contact-form button {
-    background: #2563eb;
-    color: white;
+    background-color: black !important;
+    color: white !important;
     padding: 0.75rem;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     width: 100%;
+    font-size: 1rem;
+    appearance: none;
+    -webkit-appearance: none;
 }
 
 .contact-form button:hover {
-    background: #1d4ed8;
+    background: black;
+}
+.name-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.name-row input {
+    flex: 1;
 }
 
 .contact-image {

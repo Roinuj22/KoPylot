@@ -11,7 +11,7 @@ describe('Page Suivi des Dépenses', () => {
     });
 
     it('Ajoute une dépense et l’affiche dans la liste', () => {
-        cy.contains('Ajouter une dépense').click();
+        cy.contains('Ajouter une opération').click();
         cy.get('input').first().type('Carburant');
         cy.get('select').select('Carburant/Recharge électrique');
         cy.get('input[type="number"]').type('50');
@@ -48,5 +48,17 @@ describe('Page Suivi des Dépenses', () => {
 
         cy.contains('Dépenses par catégories').should('exist');
         cy.get('svg').should('exist'); // vérifie que le graphique est visible
+    });
+    it('Déclenche l\'impression PDF', () => {
+        cy.window().then((win) => {
+            cy.stub(win, 'print').as('print');
+        });
+        cy.contains('Exporter PDF').click();
+        cy.get('@print').should('have.been.calledOnce');
+    });
+    it('Affiche zéro quand aucune dépense n\'est présente', () => {
+        localStorage.setItem('depenses', JSON.stringify([]));
+        cy.reload();
+        cy.contains('0,00 €').should('exist'); // total ou moyenne
     });
 });

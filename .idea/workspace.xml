@@ -5,9 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fcfada0-7197-490e-97dc-929794e587c2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/cypress/e2e/home.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cypress/fixtures/test.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/merge-coverage.js" beforeDir="false" afterPath="$PROJECT_DIR$/merge-coverage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sonar-project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sonar-project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nyc_output/out.json" beforeDir="false" afterPath="$PROJECT_DIR$/.nyc_output/out.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/components/ThemeContext.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov-report/components/ThemeContext.js.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/components/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov-report/components/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov-report/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/pages/_app.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov-report/pages/_app.js.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/pages/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov-report/pages/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverage/lcov.info" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/e2e/accueil.cy.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/e2e/accueil.cy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/e2e/checklist.cy.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/e2e/checklist.cy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/e2e/connexion.cy.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/e2e/connexion.cy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/e2e/depenses.cy.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/e2e/depenses.cy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/e2e/documents.cy.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/e2e/documents.cy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/e2e/rappel.cy.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/e2e/rappel.cy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Depenses.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Depenses.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/MesVehicules.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/MesVehicules.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/accueilApresConnexion.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/accueilApresConnexion.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/rappels.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/rappels.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/MesVehicules.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/MesVehicules.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/accueilApresConnexion.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/accueilApresConnexion.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/checklist.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/checklist.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/depenses.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/depenses.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/documents.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/documents.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/rappels.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/rappels.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +127,7 @@
       <workItem from="1748008963584" duration="12699000" />
       <workItem from="1748262062559" duration="5208000" />
       <workItem from="1748268101646" duration="1895000" />
-      <workItem from="1748417196536" duration="16520000" />
+      <workItem from="1748417196536" duration="52761000" />
     </task>
     <servers />
   </component>

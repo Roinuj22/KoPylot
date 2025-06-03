@@ -32,4 +32,23 @@ describe('Accueil après connexion', () => {
         cy.contains('Contact').should('exist');
         cy.get('form.contact-form').should('exist');
     });
+    it('Redirige vers /connexion si non connecté', () => {
+        localStorage.removeItem('isConnected');
+        cy.visit('http://localhost:3000/accueilApresConnexion');
+        cy.url().should('include', '/connexion');
+    });
+
+    it('Affiche un message si aucune dépense enregistrée', () => {
+        localStorage.setItem('depenses', JSON.stringify([]));
+        cy.visit('http://localhost:3000/accueilApresConnexion');
+        cy.contains('Aucune dépense enregistrée').should('exist');
+    });
+
+    it('Soumet le formulaire de contact', () => {
+        cy.get('input[placeholder="Prénom"]').type('Jean');
+        cy.get('input[placeholder="Nom"]').type('Dupont');
+        cy.get('input[placeholder="Adresse mail"]').type('jean@mail.com');
+        cy.get('textarea').type('Bonjour, ceci est un test');
+        cy.get('form.contact-form button[type="submit"]').click();
+    });
 });

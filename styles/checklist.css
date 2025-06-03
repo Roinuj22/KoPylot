@@ -94,8 +94,8 @@ body {
 }
 
 .export-btn {
-    background: #0557d5;
-    color: white;
+    color: black;
+    background: #9ca3af;
     padding: 0.5rem 1rem;
     border-radius: 10px;
     font-size: 0.9rem;
@@ -140,7 +140,7 @@ body {
 }
 
 .popup-content {
-    background: linear-gradient(to bottom, #ffffff 0%, #7fb1ff 30%, #5195fe 60%, #0557d5 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #7fb1ff 30%, #5195fe 60%, #0557d5 100%)!important;
     border-radius: 20px;
     width: 80%;
     max-width: 900px;

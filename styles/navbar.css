@@ -83,7 +83,10 @@ body.dark .logout:hover {
 .nav-right a:hover {
     color: #555;
 }
-
+.nav-left a.active {
+    color: #1d4ed8;
+    font-weight: bold;
+}
 /* Profil à droite */
 .nav-right {
     display: flex;
@@ -139,7 +142,7 @@ body.dark .logout:hover {
 }
 
 .logout {
-    background-color: #000;
+    background-color: blue;
     color: white !important;
     font-weight: 500;
     border-bottom-left-radius: 8px;

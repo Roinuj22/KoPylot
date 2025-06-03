@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Plus } from 'lucide-react';
+
 
 
 const suggestions = {
@@ -117,6 +117,15 @@ export default function MesVehicules() {
         setFormStep(1);
     };
 
+    const toggleEtat = (etat) => {
+        setDropdownVisible(false);
+        if (etatVehicule === etat) {
+            setEtatVehicule("");
+        } else {
+            setEtatVehicule(etat);
+        }
+    };
+
     const handleAction = (action) => {
         setDropdownVisible(false);
         if (action === "supprimer") {
@@ -139,12 +148,10 @@ export default function MesVehicules() {
         <div className="mes-vehicules">
             {/* HEADER */}
             <div className="header">
-                <div className="logo-vehicules"></div>
-                <h1 style={{ fontSize: "2.8rem" }}>Mes véhicules</h1>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <button onClick={handleAddClick} className="ajouter-btn"><Plus size={30} color="black"/></button>
-                    <span className="ajouter-texte">Ajouter un véhicule</span>
-                </div>
+                <h1 className="titre-vehicules">Mes véhicules</h1>
+                <span className="ajouter-vehicule" onClick={handleAddClick}>
+                    Ajouter véhicule
+                </span>
             </div>
 
             {/* Message Pro */}
@@ -365,10 +372,13 @@ export default function MesVehicules() {
                         <h1>{vehicule.marque}</h1>
                         <label>Modèle</label>
                         <h1>{vehicule.modele}</h1>
-                        <label>Date de 1ère mise en circulation</label>
+                        <label>Date 1ère immatriculation</label>
                         <h1>{vehicule.dateCirculation}</h1>
+
                         {etatVehicule && (
-                            <p className={`etat ${etatVehicule === "Hors service" ? "hors-service" : "vendu"}`}>{etatVehicule}</p>
+                            <p className={`etat ${etatVehicule === "Hors service" ? "hors-service" : "vendu"}`}>
+                                {etatVehicule}
+                            </p>
                         )}
                     </div>
                     <div className={`actions ${dropdownVisible ? 'show' : ''}`}>
@@ -377,9 +387,9 @@ export default function MesVehicules() {
                             <div className="dropdown">
                                 <ul>
                                     <li onClick={() => handleAction("modifier")}>Modifier</li>
-                                    <li onClick={() => handleAction("supprimer")}>Supprimer</li>
-                                    <li onClick={() => handleAction("hors service")}>Hors service</li>
-                                    <li onClick={() => handleAction("vendu")}>Vendu</li>
+                                    <li onClick={() => toggleEtat("vendu")}>Vendu</li>
+                                    <li onClick={() => toggleEtat("hors service")}>Hors service</li>
+                                    <li style={{ background: "red" }} onClick={() => handleAction("supprimer")}>Supprimer</li>
                                 </ul>
                             </div>
                         )}

@@ -45,4 +45,21 @@ describe('Page Documents', () => {
         cy.get('.delete-button').click();
         cy.contains('Assurance').should('not.exist');
     });
+    it('Ajoute un document via le formulaire', () => {
+        cy.contains('Ajouter un document').click();
+        cy.get('input[type="text"]').type('Permis');
+        cy.get('select').select('Document financier');
+
+        const fileName = 'test.pdf';
+        cy.get('input[type="file"]').selectFile('cypress/fixtures/' + fileName, { force: true });
+        cy.contains('Enregistrer').click();
+
+        cy.contains('Permis').should('exist');
+    });
+    it('Affiche un état vide si aucun document', () => {
+        localStorage.setItem('documents', JSON.stringify([]));
+        cy.reload();
+        cy.contains('Documents').should('exist');
+        cy.get('.document-card').should('have.length', 0);
+    });
 });
