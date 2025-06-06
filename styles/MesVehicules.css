@@ -26,7 +26,16 @@ body.dark .carte-vehicule {
     color: white;
     box-shadow: 0 8px 18px rgba(255, 255, 255, 0.05);
 }
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+}
 
+* {
+    box-sizing: border-box;
+}
 
 /* ===== HEADER ===== */
 
@@ -123,14 +132,14 @@ body.dark .carte-vehicule {
     align-items: center;
     padding: 2rem;
     border-radius: 1rem;
-    width: 90%;
+    width: 100%;
     max-width: 800px;
     min-height: 200px;
     margin: 2rem auto;
     position: relative;
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-
+    box-sizing: border-box;
 }
 
 .carte-vehicule:hover {

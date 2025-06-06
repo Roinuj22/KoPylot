@@ -157,7 +157,7 @@ export default function RapportVehicule() {
                                         data={groupedData}
                                         dataKey="value"
                                         nameKey="name"
-                                        outerRadius={isMobile ? 70 : 80}
+                                        outerRadius={isMobile ? 60 : 70}
                                         label={!isMobile}
                                     >
                                         {groupedData.map((entry, index) => (

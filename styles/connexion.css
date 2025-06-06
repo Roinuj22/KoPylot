@@ -173,10 +173,11 @@ body.dark .message-box.error {
 /* Lien retour en haut à gauche */
 .back-home {
     position: absolute;
-    top: 1.5rem;
-    left: 1.5rem;
+    top: 0.5rem;
+    left: 0rem;
     z-index: 10;
 }
+
 
 .back-link {
     color: white;
